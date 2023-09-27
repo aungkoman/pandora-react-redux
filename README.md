@@ -9,6 +9,21 @@ Material UI and Icons
 npm install @mui/material @emotion/react @emotion/styled
 npm install @mui/icons-material
 ```
+
+Material UI နမူနာ App ကို ဒီမှာ ကြည့်လို့ရတယ်။
+
+https://codesandbox.io/s/github/mui/material-ui/tree/master/examples/material-ui-cra
+
+Screen Flow ကို ပြန်ကြည့်ပြီး
+Route နဲ့ သက်ဆိုင်ရာ Page တွေ 
+Navigation တွေ မှန်အောင် အရင်လုပ်ရမယ်။
+
+State Management အပိုင်းက အတော်လေး ရိုးရှင်းတယ်။
+
+dispatch နဲ့ selector hook တွေသုံးပြီးအလုပ်လုပ်ရုံပဲ။
+UI ကိုပဲ​ smooth ဖြစ်အောင် ဂရုစိုက်ရမယ်။
+
+
 ## Git Ignore
 
 ```bash
