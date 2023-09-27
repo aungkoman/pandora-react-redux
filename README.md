@@ -4,7 +4,10 @@ Pandora ကို React-Redux-Toolkit နဲ့ ရေးရန်။
 UI အနေနဲ့ Material UI ကိုသုံးပြီး
 State Management ကို Redux-React သုံးမယ်။
 
-
+Material UI
+```bash
+npm install @mui/material @emotion/react @emotion/styled
+```
 ## Git Ignore
 
 ```bash
