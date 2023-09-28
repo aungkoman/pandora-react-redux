@@ -1,5 +1,10 @@
 # React Redux Toolkit CODELAB
 
+## 2023-09-28 Loading State
+
+ခလုပ်ကိုပဲ Loading ခလုပ်နဲ့ အစားထိုးလိုက်မယ်။
+
+
 Pandora ကို React-Redux-Toolkit နဲ့ ရေးရန်။
 UI အနေနဲ့ Material UI ကိုသုံးပြီး
 State Management ကို Redux-React သုံးမယ်။
