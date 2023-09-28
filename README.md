@@ -24,6 +24,11 @@ dispatch နဲ့ selector hook တွေသုံးပြီးအလုပ�
 UI ကိုပဲ​ smooth ဖြစ်အောင် ဂရုစိုက်ရမယ်။
 
 
+Routing အတွက်
+```bash
+npm install react-router-dom localforage match-sorter sort-by
+```
+
 ## Git Ignore
 
 ```bash
