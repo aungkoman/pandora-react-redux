@@ -12,6 +12,7 @@ import Layout from './presentation/Layout';
 import NoPage from './presentation/pages/NoPage';
 import LoginPage from './presentation/pages/auth/LoginPage';
 import RegisterPage from './presentation/pages/auth/RegisterPage';
+import ArticleListPage from './presentation/pages/article/ArticleListPage';
 
 
 const container = document.getElementById('root');
@@ -23,10 +24,11 @@ root.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<App   />} />
+            <Route index element={<ArticleListPage   />} />
             <Route path="*" element={<NoPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/app" element={<App />} />
           </Route>
         </Routes>
       </BrowserRouter>
