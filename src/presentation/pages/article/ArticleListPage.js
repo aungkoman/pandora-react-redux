@@ -44,11 +44,10 @@ const ArticleListPage = () => {
             mb={4}
             sx={{ fontWeight: "extrabold" }}
           >
-            Our Blog
+            Pandora Box
           </Typography>
           <Typography variant="body1" color="text.secondary">
-            We use an agile approach to test assumptions and connect with the
-            needs of your audience early and often.
+           Read, Write and Connect Anonymously
           </Typography>
         </Box>
         <Grid container spacing={8}>
