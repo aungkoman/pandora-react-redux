@@ -5,6 +5,7 @@ import Stack from "@mui/material/Stack";
 const ArticleLoadingPage = ()=> {
   return (
     <Stack spacing={5}>
+       
       {/* For variant="text", adjust the height via font-size */}
       <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
 
