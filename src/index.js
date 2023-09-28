@@ -13,6 +13,7 @@ import NoPage from './presentation/pages/NoPage';
 import LoginPage from './presentation/pages/auth/LoginPage';
 import RegisterPage from './presentation/pages/auth/RegisterPage';
 import ArticleListPage from './presentation/pages/article/ArticleListPage';
+import ArticleLoadingPage from './presentation/pages/article/ArticleLoadingPage';
 
 
 const container = document.getElementById('root');
@@ -29,6 +30,7 @@ root.render(
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/app" element={<App />} />
+            <Route path="/article-loading" element={<ArticleLoadingPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

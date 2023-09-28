@@ -8,6 +8,8 @@ import {
   } from "@mui/material";
   import { ArrowForward } from "@mui/icons-material";
   
+import Skeleton from "@mui/material/Skeleton";
+import Stack from "@mui/material/Stack";
   const blogData = [
     {
       title: "React with MUI 5 Blog 1 Section",
