@@ -24,6 +24,9 @@ const Layout = () => {
             <Link to="/article-loading">Article Loading Page</Link>
           </li>
           <li>
+            <Link to="/chat-conversation">Chat Conversation Page</Link>
+          </li>
+          <li>
             <Link to="/shops">Shops Page</Link>
           </li>
           <li>
