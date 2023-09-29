@@ -5,6 +5,15 @@
 ခလုပ်ကိုပဲ Loading ခလုပ်နဲ့ အစားထိုးလိုက်မယ်။
 
 
+### Login အရင်လုပ်မယ်။
+
+နှိပ်လိုက်ရင် Form Validation လုပ်ပြီးတာနဲ့  5 sec စောင့်မယ်။
+if နဲ့ စစ်ပြီး အခြေအနေပြမယ်။
+
+ဘာတွေလိုမလဲ?
+
+- [ ] login_submit_enable 
+
 Pandora ကို React-Redux-Toolkit နဲ့ ရေးရန်။
 UI အနေနဲ့ Material UI ကိုသုံးပြီး
 State Management ကို Redux-React သုံးမယ်။

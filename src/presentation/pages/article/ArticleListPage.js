@@ -6,7 +6,8 @@ import {
     Typography,
     Button,
   } from "@mui/material";
-  import { ArrowForward } from "@mui/icons-material";
+import { ArrowForward } from "@mui/icons-material";
+import {  Link } from "react-router-dom";
   
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
@@ -49,7 +50,12 @@ const ArticleListPage = () => {
           <Typography variant="body1" color="text.secondary">
            Read, Write and Connect Anonymously
           </Typography>
+         <Link to="/login">Login</Link>
+         <br />
+         <Link to="/register">Register</Link>
+          
         </Box>
+
         <Grid container spacing={8}>
           {blogData.map((data, i) => (
             <Grid item lg={6} key={i}>
