@@ -26,6 +26,62 @@ import Stack from "@mui/material/Stack";
       author: "Jhon",
       authorImg: "https://via.placeholder.com/150",
     },
+    {
+      title: "React with MUI 5 Blog 2 Section",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
+      author: "Jhon",
+      authorImg: "https://via.placeholder.com/150",
+    },
+    {
+      title: "React with MUI 5 Blog 2 Section",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
+      author: "Jhon",
+      authorImg: "https://via.placeholder.com/150",
+    },
+    {
+      title: "React with MUI 5 Blog 2 Section",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
+      author: "Jhon",
+      authorImg: "https://via.placeholder.com/150",
+    },
+    {
+      title: "React with MUI 5 Blog 2 Section",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
+      author: "Jhon",
+      authorImg: "https://via.placeholder.com/150",
+    },
+    {
+      title: "React with MUI 5 Blog 2 Section",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
+      author: "Jhon",
+      authorImg: "https://via.placeholder.com/150",
+    },
+    {
+      title: "React with MUI 5 Blog 2 Section",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
+      author: "Jhon",
+      authorImg: "https://via.placeholder.com/150",
+    },
+    {
+      title: "React with MUI 5 Blog 2 Section",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
+      author: "Jhon",
+      authorImg: "https://via.placeholder.com/150",
+    },
+    {
+      title: "React with MUI 5 Blog 2 Section",
+      description:
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
+      author: "Jhon",
+      authorImg: "https://via.placeholder.com/150",
+    },
   ];
   
 const ArticleListPage = () => {
