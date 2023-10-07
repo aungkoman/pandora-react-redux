@@ -1,5 +1,11 @@
 # React Redux Toolkit CODELAB
 
+## 2023-10-07 Sat 
+
+- [ ] UI Kit ထဲက လိုသမျှတွေ Page အလိုက် ထည့်ထားရန်
+- [ ] Internal State မှာ ရှင်းရမယ့် ကိစ္စတွေ လိုက်ရှင်းထားမယ်
+- [ ] API Integration -> Register, Login, Select , Vote, Comment 
+
 ## 2023-09-28 Loading State
 
 ခလုပ်ကိုပဲ Loading ခလုပ်နဲ့ အစားထိုးလိုက်မယ်။
