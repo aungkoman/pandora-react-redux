@@ -7,18 +7,22 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-
+import { useNavigate  } from 'react-router-dom';
 
 
 // https://frontendshape.com/post/react-mui-5-login-page-example
-const LoginPage = () =>  {
+const ForgotPasswordPage = () =>  {
+  let navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      email: data.get("email")
+      email: data.get("email"),
+      password: data.get("password"),
     });
-    // move to another page 
+    // 
+    navigate("/confirm-otp");
   };
 
   return (
@@ -32,7 +36,7 @@ const LoginPage = () =>  {
         }}
       >
         <Typography component="h1" variant="h5">
-          Sign in
+          Forgot password!
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
@@ -45,43 +49,17 @@ const LoginPage = () =>  {
             autoComplete="email"
             autoFocus
           />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
-          />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign In
+            Get OTP
           </Button>
-          <Grid container>
-            <Grid item xs>
-              <Link href="/forgot-password" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
-            <Grid item>
-              <Link href="/register" variant="body2">
-                {"Don't have an account? Sign Up"}
-              </Link>
-            </Grid>
-          </Grid>
         </Box>
       </Box>
     </Container>
   );
 }
-export default LoginPage;
+export default ForgotPasswordPage;

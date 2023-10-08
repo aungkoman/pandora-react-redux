@@ -16,6 +16,8 @@ import ArticleListPage from './presentation/pages/article/ArticleListPage';
 import ArticleLoadingPage from './presentation/pages/article/ArticleLoadingPage';
 import ChatConversationPage from './presentation/pages/chat/ChatConversationPage';
 import ArticleDetailPage from './presentation/pages/article/ArticleDetailPage';
+import ForgotPasswordPage from './presentation/pages/auth/ForgotPasswordPage';
+import ConfirmOtpPage from './presentation/pages/auth/ConfirmOtpPage';
 
 
 const container = document.getElementById('root');
@@ -31,6 +33,8 @@ root.render(
             <Route path="*" element={<NoPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+            <Route path="/confirm-otp" element={<ConfirmOtpPage />} />
             <Route path="/app" element={<App />} />
             <Route path="/article-loading" element={<ArticleLoadingPage />} />
             <Route path="/chat-conversation" element={<ChatConversationPage />} />
