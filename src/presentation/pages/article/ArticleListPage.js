@@ -13,6 +13,7 @@ import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
   const blogData = [
     {
+      id: 1,
       title: "React with MUI 5 Blog 1 Section",
       description:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
@@ -20,6 +21,7 @@ import Stack from "@mui/material/Stack";
       authorImg: "https://via.placeholder.com/150",
     },
     {
+      id: 2,
       title: "React with MUI 5 Blog 2 Section",
       description:
         "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
@@ -85,7 +87,7 @@ import Stack from "@mui/material/Stack";
   ];
   
 const ArticleListPage = () => {
-  
+
     return (
       <Container sx={{ py: { xs: 8, lg: 16 } }}>
         <Box
@@ -150,9 +152,11 @@ const ArticleListPage = () => {
                     />
                     <Typography variant="subtitle1">{data.author}</Typography>
                   </Box>
-                  <Button endIcon={<ArrowForward />} color="primary" size="small">
-                    Read more
-                  </Button>
+                  <Link to={"/articles/" + data.id}>
+                    <Button endIcon={<ArrowForward />} color="primary" size="small">
+                      Read more
+                    </Button>
+                  </Link>
                 </Box>
               </Box>
             </Grid>
