@@ -34,7 +34,7 @@ root.render(
             <Route path="/app" element={<App />} />
             <Route path="/article-loading" element={<ArticleLoadingPage />} />
             <Route path="/chat-conversation" element={<ChatConversationPage />} />
-            <Route path="/article/:id" element={<ArticleDetailPage />} />
+            <Route path="/articles/:id" element={<ArticleDetailPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

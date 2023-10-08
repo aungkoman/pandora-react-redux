@@ -7,10 +7,11 @@ import {
     Button,
   } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
-import {  Link } from "react-router-dom";
+import {  Link,useParams } from "react-router-dom";
   
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
+
   const data = {
     title: "React with MUI 5 Blog 1 Section",
     description:"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using.",
@@ -19,6 +20,8 @@ import Stack from "@mui/material/Stack";
   };
   
 const ArticleDetailPage = () => {
+    let { id } = useParams();
+
     return (
       <Container sx={{ py: { xs: 8, lg: 16 } }}>
         
@@ -37,7 +40,7 @@ const ArticleDetailPage = () => {
                   mb={2}
                   sx={{ fontWeight: "bold" }}
                 >
-                  {data.title}
+                  {data.title} {id}
                 </Typography>
                 <Typography variant="body2" color="text.secondary" mb={5}>
                   {data.description}
