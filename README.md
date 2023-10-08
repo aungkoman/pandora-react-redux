@@ -1,5 +1,47 @@
 # React Redux Toolkit CODELAB
 
+## 2023-10-08 Sun
+
+- [ ] List required pages
+- [ ] Add ui component for each page
+- [ ] Link each other
+- [ ] Integrate API
+
+### Required Pages
+
+- [x] Login
+- [x] Register
+- [x] Newsfeed
+- [ ] Detail
+- [ ] Profile
+- [ ] Edit profile
+- [ ] Create article
+- [ ] Edit article
+
+
+** Flutter is easier than HTML,CSS
+
+ကျွန်တော့အတွက်ကတော့ အတော်လေး ရှုပ်ထွေးတဲ့ ရေးထုံးတွေ စဖြစ်လာပါပြီ။
+
+
+```jsx
+<Container sx={{ py: { xs: 8, lg: 16 } }}>
+        <Box
+          sx={{
+            mx: "auto",
+            mb: { lg: 16, sm: 8 },
+            maxWidth: "sm",
+            textAlign: "center",
+          }}
+        >
+```
+
+ဒါတွေ နားလည်ဖို့က သူ့ Library ကို အချိန်ပေးပြီး ဖတ်မှပဲ​ဖြစ်မယ်။
+မဟုတ်ရင် မရင်းနှီးတဲ့ ရေးထုံးတွေနဲ့ စိတ်ညစ်ရလိမ့်မယ်။
+
+
+
+
 ## 2023-10-07 Sat 
 
 - [ ] UI Kit ထဲက လိုသမျှတွေ Page အလိုက် ထည့်ထားရန်

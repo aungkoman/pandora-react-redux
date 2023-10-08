@@ -15,6 +15,7 @@ import RegisterPage from './presentation/pages/auth/RegisterPage';
 import ArticleListPage from './presentation/pages/article/ArticleListPage';
 import ArticleLoadingPage from './presentation/pages/article/ArticleLoadingPage';
 import ChatConversationPage from './presentation/pages/chat/ChatConversationPage';
+import ArticleDetailPage from './presentation/pages/article/ArticleDetailPage';
 
 
 const container = document.getElementById('root');
@@ -33,6 +34,7 @@ root.render(
             <Route path="/app" element={<App />} />
             <Route path="/article-loading" element={<ArticleLoadingPage />} />
             <Route path="/chat-conversation" element={<ChatConversationPage />} />
+            <Route path="/article/:id" element={<ArticleDetailPage />} />
           </Route>
         </Routes>
       </BrowserRouter>
