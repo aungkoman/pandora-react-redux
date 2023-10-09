@@ -8,10 +8,22 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
+import { useState } from 'react';
 
+import CircularProgress from '@mui/material/CircularProgress';
+import { blue } from '@mui/material/colors';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 // https://frontendshape.com/post/react-mui-5-login-page-example
 const LoginPage = () =>  {
+  // internal state
+  const [loading, setLoading] = useState(false);
+  const [open, setOpen] =  useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -19,6 +31,23 @@ const LoginPage = () =>  {
       email: data.get("email")
     });
     // move to another page 
+    /*
+      Now we need to dispatch login action (async) and wait for result
+    */
+   setLoading(true);
+    setTimeout(() => {
+        setLoading(false);
+        handleClickOpen();
+    }, 2000);
+  };
+
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -59,14 +88,36 @@ const LoginPage = () =>  {
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
           />
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            sx={{ mt: 3, mb: 2 }}
-          >
-            Sign In
-          </Button>
+          <Box sx={{ m: 1, position: 'relative' }}>
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              sx={{ mt: 3, mb: 2 }}
+              disabled={loading}
+            >
+              Sign In
+            </Button>
+            {loading && (
+                <CircularProgress
+                  size={24}
+                  sx={{
+                    color: blue[500],
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    marginTop: '-12px',
+                    marginLeft: '-12px',
+                  }}
+                />
+            )}
+        </Box>
+
+
+
+
+
+
           <Grid container>
             <Grid item xs>
               <Link href="/forgot-password" variant="body2">
@@ -81,6 +132,27 @@ const LoginPage = () =>  {
           </Grid>
         </Box>
       </Box>
+
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Success"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Welcome from pandora.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} autoFocus>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Container>
   );
 }

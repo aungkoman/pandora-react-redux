@@ -14,6 +14,16 @@ internal state ကို loading ပြင်မယ်။
 
 
 
+UI တော့ အိုကေပြီ။
+တစ်ခုပဲ
+API က Result ကိုဘယ်လိုပြမလဲ?
+
+API အရင်ရေးလိုက်ဉီးမယ်။
+အခုက UI မှာ Result ပြဖို့ Logic ကို လုံးဝစဉ်းစားလို့မရ ေသး။
+
+
+
+
 ## 2023-10-08 Sun
 
 - [ ] List required pages
