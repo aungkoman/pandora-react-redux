@@ -21,6 +21,18 @@ API က Result ကိုဘယ်လိုပြမလဲ?
 API အရင်ရေးလိုက်ဉီးမယ်။
 အခုက UI မှာ Result ပြဖို့ Logic ကို လုံးဝစဉ်းစားလို့မရ ေသး။
 
+နောက်တစ်ခု Form Validation ကို ဘယ်လို Handle လုပ်ကြမလဲ?
+
+
+### မသိခြင်းများ
+
+- [ ] JS မှာ Promise ဆိုတာ ဘာလဲ?
+- [ ] axios.post က ဘာကို Return ပြန်ပေးမှာလဲ?
+- [ ] createAsyncThunk က ဘာတွေကို လက်ခံပြီး ဘယ်ချိန်မှာ pending, fulfilled စတဲ့ event တွေ ထုတ်ပေးမှာလဲ? 
+- [ ] .addCase(loginAsync.pending, (state) => { state.status = 'loading'; }) ဒီမှာ ဘယ်လို listen လုပ်ရမလဲ?
+
+
+ဒါတွေ ပြန်ဖတ်ဖို့ လိုနေပြီ။
 
 
 

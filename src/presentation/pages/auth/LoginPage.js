@@ -30,6 +30,8 @@ const LoginPage = () =>  {
     console.log({
       email: data.get("email")
     });
+
+    
     // move to another page 
     /*
       Now we need to dispatch login action (async) and wait for result
