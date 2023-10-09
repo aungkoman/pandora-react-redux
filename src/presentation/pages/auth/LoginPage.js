@@ -18,6 +18,10 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
+
+import { useSelector, useDispatch } from 'react-redux';
+
+
 // https://frontendshape.com/post/react-mui-5-login-page-example
 const LoginPage = () =>  {
   // internal state
@@ -27,9 +31,10 @@ const LoginPage = () =>  {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email")
-    });
+    const email = data.get("email");
+    const password = data.get("password");
+    const requestData = {email, password};
+    dispatch
 
     
     // move to another page 

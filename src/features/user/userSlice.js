@@ -20,13 +20,22 @@ const initialState = {
         "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9"
     },
     status: 'idle', // idle, loading, error , success
+    error: null
 };
 
 export const loginAsync = createAsyncThunk(
     'user/login',
     async ({email, password}) => {
+      // ဒီ function စခေါ်တာနဲ့ pending action ကို dispatch လုပ်မယ်။
+      // TODO: try catch this future 
+      // ဒီမှာ မ catch ဘူးဆိုတာကဘာလဲ?
+      // exception တက်ခဲ့ရင် error action ကို dispatch လုပ်မှာလား? ဒါလည်း မပြောတက်။
+      // အခုလောလောဆယ် UI Component ကနေ Login ဝင်ချင်ရင် လုပ်စရာလိုတာက ဒီ​ Thunk Creator ကို Dispatch လုပ်ရုံပဲ
+      // ဒါမျိုး dispatch(loginAsync({email, password}));
+
       const response = await loginApi({email, password});
       // The value we return becomes the `fulfilled` action payload
+      // return ပြန်လိုက်တာနဲ့ ဒီ Thunk က fulfilled action ကို ထုတ်ပေး (dispatch) မယ်။
       return response.data;
     }
 );
@@ -59,8 +68,12 @@ export const userSlice = createSlice({
           state.status = 'loading';
         })
         .addCase(loginAsync.fulfilled, (state, action) => {
-          state.status = 'idle';
-          state.user = action.payload.data;
+          state.status = 'succeeded';
+          state.user = action.payload;
+        })
+        .addCase(loginAsync.rejected, (state, action) => {
+          state.status = 'error';
+          state.error = action.error.message; // Store the error message
         });
     },
   });

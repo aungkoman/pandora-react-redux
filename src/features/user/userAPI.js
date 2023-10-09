@@ -4,20 +4,26 @@ const axios = require('axios');
 export function loginApi({email, password}) {
 
     /* ဒီမှာ Promise တစ်ခု return လုပ်ရမယ် */
-    return axios.post('/user', document.querySelector('#my-form'), {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // Define the URL you want to send the POST request to
+    const apiUrl = 'https://example.com/api/resource';
 
-    return new Promise((resolve) =>
-      setTimeout(() => resolve({ data: amount }), 500)
-    );
+    // Define the data you want to send in the request body (usually as an object)
+    const postData = {
+      email,
+      password
+    };
+
+    // Send the POST request
+    return axios.post(apiUrl, postData)
+    .then((response) => {
+      // Handle the response data here
+      console.log('Response:', response.data);
+      return response.data;
+    })
+    .catch((error) => {
+      // Handle any errors that occurred during the request
+      console.error('Error:', error);
+      return error;
+    });
 }
   
