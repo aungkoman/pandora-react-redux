@@ -1,5 +1,19 @@
 # React Redux Toolkit CODELAB
 
+## 2023-10-09 API for Login and Register
+
+- [ ] Login API
+
+ဒါကို ဘယ်မှာ ရေးရမလဲ?
+asyncExtra ဆိုပြီး Reducer မှာ ရေးမယ်။
+
+ဒီ action ကို Form Submit Handler က ခေါ်ပေး (​ dispatch ) လုပ်မယ်။
+
+internal state ကို loading ပြင်မယ်။
+ခလုပ်ကို disabled and loading indicator ပြောင်းမယ်။
+
+
+
 ## 2023-10-08 Sun
 
 - [ ] List required pages
