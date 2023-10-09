@@ -26,6 +26,7 @@ const initialState = {
 export const loginAsync = createAsyncThunk(
     'user/login',
     async ({email, password}) => {
+      console.log("loginAsync started");
       // ဒီ function စခေါ်တာနဲ့ pending action ကို dispatch လုပ်မယ်။
       // TODO: try catch this future 
       // ဒီမှာ မ catch ဘူးဆိုတာကဘာလဲ?
@@ -34,6 +35,8 @@ export const loginAsync = createAsyncThunk(
       // ဒါမျိုး dispatch(loginAsync({email, password}));
 
       const response = await loginApi({email, password});
+      console.log("loginAsync response");
+      console.log(response);
       // The value we return becomes the `fulfilled` action payload
       // return ပြန်လိုက်တာနဲ့ ဒီ Thunk က fulfilled action ကို ထုတ်ပေး (dispatch) မယ်။
       return response.data;
@@ -65,15 +68,19 @@ export const userSlice = createSlice({
     extraReducers: (builder) => {
       builder
         .addCase(loginAsync.pending, (state) => {
+          console.log("loginAsync.pending");
           state.status = 'loading';
         })
         .addCase(loginAsync.fulfilled, (state, action) => {
+          console.log("loginAsync.fulfilled");
           state.status = 'succeeded';
           state.user = action.payload;
         })
         .addCase(loginAsync.rejected, (state, action) => {
+          console.log("loginAsync.rejected");
           state.status = 'error';
           state.error = action.error.message; // Store the error message
         });
     },
   });
+  export default userSlice.reducer;

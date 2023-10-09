@@ -21,12 +21,18 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 import { useSelector, useDispatch } from 'react-redux';
 
+import {
+  loginAsync
+} from './../../../features/user/userSlice';
+
+
 
 // https://frontendshape.com/post/react-mui-5-login-page-example
 const LoginPage = () =>  {
   // internal state
   const [loading, setLoading] = useState(false);
   const [open, setOpen] =  useState(false);
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -34,18 +40,22 @@ const LoginPage = () =>  {
     const email = data.get("email");
     const password = data.get("password");
     const requestData = {email, password};
-    dispatch
+    dispatch(loginAsync(requestData));
+    /*
+    setLoading(true);
+    setTimeout(() => {
+        setLoading(false);
+        handleClickOpen();
+    }, 2000);
+    */
+    
 
     
     // move to another page 
     /*
       Now we need to dispatch login action (async) and wait for result
     */
-   setLoading(true);
-    setTimeout(() => {
-        setLoading(false);
-        handleClickOpen();
-    }, 2000);
+   
   };
 
 

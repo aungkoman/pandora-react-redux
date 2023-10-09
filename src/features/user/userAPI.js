@@ -1,11 +1,14 @@
-const axios = require('axios');
+import axios from 'axios';
 
 // A mock function to mimic making an async request for data
 export function loginApi({email, password}) {
 
+    console.log("loginApi");
+    console.log({email, password});
+
     /* ဒီမှာ Promise တစ်ခု return လုပ်ရမယ် */
     // Define the URL you want to send the POST request to
-    const apiUrl = 'https://example.com/api/resource';
+    const apiUrl = 'http://localhost/pandora/public/api/v1/login';
 
     // Define the data you want to send in the request body (usually as an object)
     const postData = {
