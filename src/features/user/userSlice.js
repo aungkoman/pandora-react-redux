@@ -48,6 +48,9 @@ export const userSlice = createSlice({
     initialState,
     // The `reducers` field lets us define reducers and generate associated actions
     reducers: {
+      logout: (state) => {
+        return initialState;
+      },
       setStatusIdle: (state) => {
         state.status = "idle";
       },
@@ -89,7 +92,7 @@ export const userSlice = createSlice({
 
   // actions
 
-export const { setStatusIdle, increment, decrement, incrementByAmount } = userSlice.actions;
+export const { logout, setStatusIdle, increment, decrement, incrementByAmount } = userSlice.actions;
   // selectors
   // ဒါက Gloal State ထဲက ယူပြရမှာ။ 
   // Combined Reducer ခေါ်မလားပဲ။

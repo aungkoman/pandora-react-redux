@@ -11,7 +11,17 @@ import {  Link } from "react-router-dom";
   
 import Skeleton from "@mui/material/Skeleton";
 import Stack from "@mui/material/Stack";
-  const blogData = [
+
+import {
+  // selectors
+  loggedInUser,
+  loginStatus
+} from './../../../features/user/userSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate  } from 'react-router-dom';
+
+
+const blogData = [
     {
       id: 1,
       title: "React with MUI 5 Blog 1 Section",
@@ -84,9 +94,14 @@ import Stack from "@mui/material/Stack";
       author: "Jhon",
       authorImg: "https://via.placeholder.com/150",
     },
-  ];
-  
+];
+
 const ArticleListPage = () => {
+  // core
+
+  // selector hooks
+  const status = useSelector(loginStatus);
+  const user = useSelector(loggedInUser);
 
     return (
       <Container sx={{ py: { xs: 8, lg: 16 } }}>
@@ -109,9 +124,12 @@ const ArticleListPage = () => {
           <Typography variant="body1" color="text.secondary">
            Read, Write and Connect Anonymously
           </Typography>
-         <Link to="/login">Login</Link>
-         <br />
-         <Link to="/register">Register</Link>
+          { status == "idle" ? <Link to="/login">Login</Link> : "" }
+          <br />
+          { status == "idle" ? <Link to="/register">Register</Link> : "" }
+          <br />
+          { status == "succeeded" ? <Link to="/logout">Logout</Link> : "" }
+         
           
         </Box>
 

@@ -14,6 +14,34 @@ status နဲ့ error message ကို ကြည့်ဖို့ လို�
 Selector သုံးရမယ်။
 
 
+
+*** Functional Component တစ်ခုရဲ့ Lifecycle ကို သိဖို့လိုလာပြီ​ ***
+
+useEffect hook က ဘယ်ချိန်မှာ run မှာလဲ?
+
+နှစ်ချိန်မှာ Run တယ်။
+
+- After the initial render 
+- When dependencies change
+
+
+
+Initial Render နဲ့ Rerender ဆိုတာ ရှိတယ်။
+Component တစ်ခု စပြီး UI ပေါ်တင်ဖို့ Initial Render လုပ်တယ်။
+ပြီးရင် အကြောင်းအမျိုးမျိုးနဲ့ Rerender လည်း လုပ်တယ်။
+
+dependency changes ဖြစ်ရင် useEffect က ပြန် run မယ်မထင်ရဘူးပေါ့။
+မှန်တယ်။ ReRender လုပ်တဲ့အချိန် useEffect ကို မခေါ်တော့ဘူး။ 
+
+
+The useEffect hook in React runs after the initial render of the component and can run subsequent times based on the dependencies you specify. It allows you to perform side effects in your functional components, such as data fetching, subscriptions, or in the case of navigation, route changes. Here's when useEffect runs:
+
+After the Initial Render: By default, the code inside the useEffect callback runs immediately after the initial render of the component. This is similar to the componentDidMount lifecycle method in class components.
+
+When Dependencies Change: You can pass an array of dependencies as the second argument to useEffect. If any of the dependencies change between renders, the useEffect callback will run again after the component re-renders. If you pass an empty array ([]) as the second argument, the effect runs only after the initial render and doesn't have any dependencies to watch for changes.
+
+
+
 ## 2023-10-09 API for Login and Register
 
 - [ ] Login API

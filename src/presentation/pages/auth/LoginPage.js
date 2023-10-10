@@ -20,6 +20,8 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 
 import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate  } from 'react-router-dom';
+import React, { useEffect } from 'react';
 
 import {
   loginAsync,
@@ -33,15 +35,17 @@ import {
 
 // https://frontendshape.com/post/react-mui-5-login-page-example
 const LoginPage = () =>  {
+  // core
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   // internal state
   const [loading, setLoading] = useState(false);
   const [open, setOpen] =  useState(false);
-  const dispatch = useDispatch();
 
   // selector hooks
   const status = useSelector(loginStatus);
   const error = useSelector(loginError);
-  const user = useSelector(loggedInUser);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -52,14 +56,23 @@ const LoginPage = () =>  {
     dispatch(loginAsync(requestData));
   };
 
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+ 
 
   const handleClose = () => {
     dispatch(setStatusIdle());
   };
+
+  useEffect(() => {
+    if(status == "succeeded"){
+      navigate("/");
+    }
+  }, [status]); // Include history as a dependency
+
+
+  useEffect(() => {
+    console.log("this is use effect for initial render");
+  }, []);
+  
 
   return (
     <Container component="main" maxWidth="xs">
