@@ -142,7 +142,7 @@ const ArticleListPage = () => {
       // You have reached the bottom or near the bottom
       console.log('Scrollbar reached the bottom.');
       // Add your logic here
-      if(status)
+      // if(status)
     }
   }
 
