@@ -13,6 +13,10 @@ Http Error တွေကို လူလိုသူလိုနားလည်�
 status နဲ့ error message ကို ကြည့်ဖို့ လိုမယ်။
 Selector သုံးရမယ်။
 
+*** Article Detail *** ရပြီ။
+
+
+
 
 
 *** Functional Component တစ်ခုရဲ့ Lifecycle ကို သိဖို့လိုလာပြီ​ ***

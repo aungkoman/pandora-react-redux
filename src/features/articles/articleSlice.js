@@ -4,7 +4,7 @@ import { articleSelectApi, articleDetailSelectApi } from './articleAPI';
 // ဒါက Initial State
 const initialState = {
     articles: [],
-    status: 'idle', // idle, loading, error , succeeded
+    status: 'idle', // idle, loading, error , succeded
     error: null,
     article : {},
     article_status : 'idle',
@@ -42,7 +42,7 @@ export const articleSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(selectArticlesAsyncThunk.fulfilled, (state, action) => {
-                state.status = 'succeeded';
+                state.status = 'succeded';
                 state.articles.push(...action.payload);
             })
             .addCase(selectArticlesAsyncThunk.rejected, (state, action) => {

@@ -73,6 +73,7 @@ const ArticleDetailPage = () => {
   return (
     <Container sx={{ py: { xs: 8, lg: 16 } }}>
 
+      { status != 'succeeded' ? "Loading" : 
       <Box
         sx={{
           p: 6,
@@ -88,10 +89,10 @@ const ArticleDetailPage = () => {
           mb={2}
           sx={{ fontWeight: "bold" }}
         >
-          {data.title} {id}
+          {article.title}
         </Typography>
         <Typography variant="body2" color="text.secondary" mb={5}>
-          {data.description}
+          {article.content}
         </Typography>
         <Box
           sx={{
@@ -102,14 +103,15 @@ const ArticleDetailPage = () => {
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <Avatar
-              src={data.authorImg}
+              src={article.user.photo_url}
               sx={{ width: 28, height: 28, mr: 1 }}
             />
-            <Typography variant="subtitle1">{data.author}</Typography>
+            <Typography variant="subtitle1">{article.user.name}</Typography>
           </Box>
 
         </Box>
       </Box>
+      }
     </Container>
   );
 }
