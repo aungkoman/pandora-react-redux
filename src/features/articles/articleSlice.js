@@ -34,9 +34,6 @@ export const articleSlice = createSlice({
     reducers: {
         reset: (state) => {
             return initialState;
-        },
-        reset: (state) => {
-            return initialState;
         }
     },
     extraReducers: (builder) => {
@@ -71,7 +68,14 @@ export const articleSlice = createSlice({
 export const { reset } = articleSlice.actions;
 
 // selectors
+// article list
 export const selectArticles = (state) => state.articles.articles;
+export const selectArticlesStatus = (state) => state.articles.status;
+export const selectArticlesError = (state) => state.articles.error;
+// article detail
+export const selectArticleDetail = (state) => state.articles.article;
+export const selectArticleDetailStatus = (state) => state.articles.article_status;
+export const selectArticleDetailError = (state) => state.articles.article_error;
 
 
 // ဒါက Gloal State ထဲက ယူပြရမှာ။ 
