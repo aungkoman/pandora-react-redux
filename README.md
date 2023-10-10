@@ -13,6 +13,13 @@ Http Error တွေကို လူလိုသူလိုနားလည်�
 status နဲ့ error message ကို ကြည့်ဖို့ လိုမယ်။
 Selector သုံးရမယ်။
 
+
+Body ရဲ့ scroll က အောက်ဆုံးအထိ ရောက်လာရင် Pagination API ကို ခေါ်ဖို့လိုမယ်။
+Body ရဲ့ scroll event ကိုလည်း ဒီ Page ကပဲ​ handle လုပ်သင့်တယ်။
+Global မှာ မလုပ်သင့်။
+
+
+
 *** Article Detail *** ရပြီ။
 
 

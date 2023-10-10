@@ -120,6 +120,7 @@ const ArticleListPage = () => {
 
   useEffect(() => {
     console.log("ArticleListPage useEffect");
+    window.addEventListener('scroll', handleScroll);
     let data = {
       page : 1,
       filter : {},
@@ -128,9 +129,26 @@ const ArticleListPage = () => {
     dispatch(selectArticlesAsyncThunk(data));
   }, []); // Include history as a dependency
 
+  // event handlers
+  function handleScroll(event) {
+    //console.log("handleScroll");
+    //console.log(event);
+    const windowHeight = window.innerHeight;
+    const documentHeight = document.body.clientHeight;
+    const scrollY = window.scrollY;
+
+    // Check if the scrollbar is at the bottom or near the bottom
+    if (scrollY + windowHeight >= documentHeight - 100) {
+      // You have reached the bottom or near the bottom
+      console.log('Scrollbar reached the bottom.');
+      // Add your logic here
+      if(status)
+    }
+  }
+
 
     return (
-      <Container sx={{ py: { xs: 8, lg: 16 } }}>
+      <Container sx={{ py: { xs: 8, lg: 16 } }}  >
         <Box
           sx={{
             mx: "auto",
