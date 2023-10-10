@@ -19,10 +19,12 @@ export function loginApi({email, password}) {
     return new Promise((resolve, reject) => {
       axios.post(apiUrl, postData)
         .then(response => {
-          resolve(response.data);
+          setTimeout(() => resolve(response.data), 3000);
+          //resolve(response.data);
         })
         .catch(error => {
-          reject(error);
+          setTimeout(() => reject(error), 3000);
+          // reject(error);
         });
     });
 

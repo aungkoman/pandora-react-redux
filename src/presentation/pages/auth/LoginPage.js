@@ -11,7 +11,7 @@ import Container from "@mui/material/Container";
 import { useState } from 'react';
 
 import CircularProgress from '@mui/material/CircularProgress';
-import { blue } from '@mui/material/colors';
+import { blue, red } from '@mui/material/colors';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -22,7 +22,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
-  loginAsync
+  loginAsync,
+  loginStatus,
+  loginError,
+  loggedInUser,
+  setStatusIdle
 } from './../../../features/user/userSlice';
 
 
@@ -34,6 +38,11 @@ const LoginPage = () =>  {
   const [open, setOpen] =  useState(false);
   const dispatch = useDispatch();
 
+  // selector hooks
+  const status = useSelector(loginStatus);
+  const error = useSelector(loginError);
+  const user = useSelector(loggedInUser);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -41,21 +50,6 @@ const LoginPage = () =>  {
     const password = data.get("password");
     const requestData = {email, password};
     dispatch(loginAsync(requestData));
-    /*
-    setLoading(true);
-    setTimeout(() => {
-        setLoading(false);
-        handleClickOpen();
-    }, 2000);
-    */
-    
-
-    
-    // move to another page 
-    /*
-      Now we need to dispatch login action (async) and wait for result
-    */
-   
   };
 
 
@@ -64,7 +58,7 @@ const LoginPage = () =>  {
   };
 
   const handleClose = () => {
-    setOpen(false);
+    dispatch(setStatusIdle());
   };
 
   return (
@@ -80,6 +74,11 @@ const LoginPage = () =>  {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
+        <Typography component="h1" variant="h5" color={red[500]}>
+          { status == 'error' ? error : ""}
+        </Typography>
+        
+ 
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
@@ -111,11 +110,11 @@ const LoginPage = () =>  {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              disabled={loading}
+              disabled={status != 'idle'}
             >
               Sign In
             </Button>
-            {loading && (
+            { status != 'idle' && (
                 <CircularProgress
                   size={24}
                   sx={{
@@ -151,22 +150,22 @@ const LoginPage = () =>  {
       </Box>
 
       <Dialog
-        open={open}
+        open={ status == "error" }
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Success"}
+          {"Error"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Welcome from pandora.
+            { error }
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} autoFocus>
-            Agree
+            OK
           </Button>
         </DialogActions>
       </Dialog>

@@ -1,5 +1,19 @@
 # React Redux Toolkit CODELAB
 
+## 2023-10-10 Tue
+
+Promise နဲ့ AsyncThunk အကြောင်း ရိပ်ဖမ်းသံဖမ်း နားလည်။
+
+Http Error တွေကို လူလိုသူလိုနားလည်အောင် Exception Handling လုပ်ဖို့လိုမယ်။
+
+အခု တကယ့် UI ကို ကြည့်ဖို့ လိုလာပြီ။
+
+
+
+status နဲ့ error message ကို ကြည့်ဖို့ လိုမယ်။
+Selector သုံးရမယ်။
+
+
 ## 2023-10-09 API for Login and Register
 
 - [ ] Login API
@@ -33,6 +47,8 @@ API အရင်ရေးလိုက်ဉီးမယ်။
 
 
 ဒါတွေ ပြန်ဖတ်ဖို့ လိုနေပြီ။
+
+
 
 
 

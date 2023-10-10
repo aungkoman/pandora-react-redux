@@ -19,7 +19,7 @@ const initialState = {
         "updated_at": "2023-09-27T02:37:44.000000Z",
         "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9"
     },
-    status: 'idle', // idle, loading, error , success
+    status: 'idle', // idle, loading, error , succeeded
     error: null
 };
 
@@ -48,6 +48,9 @@ export const userSlice = createSlice({
     initialState,
     // The `reducers` field lets us define reducers and generate associated actions
     reducers: {
+      setStatusIdle: (state) => {
+        state.status = "idle";
+      },
       increment: (state) => {
         // Redux Toolkit allows us to write "mutating" logic in reducers. It
         // doesn't actually mutate the state because it uses the Immer library,
@@ -83,4 +86,17 @@ export const userSlice = createSlice({
         });
     },
   });
+
+  // actions
+
+export const { setStatusIdle, increment, decrement, incrementByAmount } = userSlice.actions;
+  // selectors
+  // ဒါက Gloal State ထဲက ယူပြရမှာ။ 
+  // Combined Reducer ခေါ်မလားပဲ။
+  export const loginStatus = (state) => state.user.status;
+  export const loginError = (state) => state.user.error;
+  export const loggedInUser = (state) => state.user.user;
+  
+  // export reducer
+  // ဒါက combined reducer က ယူသုံးဖို့ ထင်ရဲ့။
   export default userSlice.reducer;
