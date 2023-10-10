@@ -16,7 +16,19 @@ export function loginApi({email, password}) {
       password
     };
 
+    return new Promise((resolve, reject) => {
+      axios.post(apiUrl, postData)
+        .then(response => {
+          resolve(response.data);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+
+
     // Send the POST request
+    /*
     return axios.post(apiUrl, postData)
     .then((response) => {
       // Handle the response data here
@@ -28,5 +40,6 @@ export function loginApi({email, password}) {
       console.error('Error:', error);
       return error;
     });
+    */
 }
   
