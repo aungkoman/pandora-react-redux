@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ARTICLE_API_ENDPOINT } from './config';
+import { ARTICLE_API_ENDPOINT } from './../../config/config';
 
 
 // A mock function to mimic making an async request for data
@@ -7,13 +7,7 @@ export function articleSelectApi({ filter, page, accessToken }) {
 
     console.log("articleSelectApi");
     console.log({ filter, page, accessToken });
-
-
-    // Define the data you want to send in the request body (usually as an object)
-    const postData = {
-        email,
-        password
-    };
+    
 
     return new Promise((resolve, reject) => {
         // TODO: filter need to be spread

@@ -20,6 +20,15 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate  } from 'react-router-dom';
 
+import React, { useEffect } from 'react';
+
+import {
+  // thunks
+  selectArticlesAsyncThunk,
+  // selectors
+  selectArticles
+} from './../../../features/articles/articleSlice';
+
 
 const blogData = [
     {
@@ -98,10 +107,27 @@ const blogData = [
 
 const ArticleListPage = () => {
   // core
+  const dispatch = useDispatch();
 
   // selector hooks
+  // for user section
   const status = useSelector(loginStatus);
   const user = useSelector(loggedInUser);
+  // article section
+  const articles = useSelector(selectArticles);
+
+
+
+  useEffect(() => {
+    console.log("ArticleListPage useEffect");
+    let data = {
+      page : 1,
+      filter : {},
+      accessToken : user.accessToken
+    }
+    dispatch(selectArticlesAsyncThunk(data));
+  }, []); // Include history as a dependency
+
 
     return (
       <Container sx={{ py: { xs: 8, lg: 16 } }}>
@@ -133,8 +159,9 @@ const ArticleListPage = () => {
           
         </Box>
 
+        { articles.length == 0 ? "Loading" : 
         <Grid container spacing={8}>
-          {blogData.map((data, i) => (
+          {articles.map((data, i) => (
             <Grid item lg={6} key={i}>
               <Box
                 sx={{
@@ -154,7 +181,7 @@ const ArticleListPage = () => {
                   {data.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary" mb={5}>
-                  {data.description}
+                  {data.content}
                 </Typography>
                 <Box
                   sx={{
@@ -165,10 +192,10 @@ const ArticleListPage = () => {
                 >
                   <Box sx={{ display: "flex", alignItems: "center" }}>
                     <Avatar
-                      src={data.authorImg}
+                      src={data.user.photo_url}
                       sx={{ width: 28, height: 28, mr: 1 }}
                     />
-                    <Typography variant="subtitle1">{data.author}</Typography>
+                    <Typography variant="subtitle1">{data.user.name}</Typography>
                   </Box>
                   <Link to={"/articles/" + data.id}>
                     <Button endIcon={<ArrowForward />} color="primary" size="small">
@@ -180,6 +207,8 @@ const ArticleListPage = () => {
             </Grid>
           ))}
         </Grid>
+
+                }
       </Container>
     );
   }

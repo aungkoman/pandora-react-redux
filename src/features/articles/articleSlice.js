@@ -8,7 +8,7 @@ const initialState = {
     error: null
 };
 
-export const selectAsyncThunk = createAsyncThunk(
+export const selectArticlesAsyncThunk = createAsyncThunk(
     'articles/select',
     async ({ filter, page, accessToken }) => {
         const response = await articleSelectApi({ filter, page, accessToken });
@@ -22,18 +22,21 @@ export const articleSlice = createSlice({
     reducers: {
         reset: (state) => {
             return initialState;
+        },
+        reset: (state) => {
+            return initialState;
         }
     },
     extraReducers: (builder) => {
         builder
-            .addCase(selectAsyncThunk.pending, (state) => {
+            .addCase(selectArticlesAsyncThunk.pending, (state) => {
                 state.status = 'loading';
             })
-            .addCase(selectAsyncThunk.fulfilled, (state, action) => {
+            .addCase(selectArticlesAsyncThunk.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.user = action.payload;
+                state.articles.push(...action.payload);
             })
-            .addCase(selectAsyncThunk.rejected, (state, action) => {
+            .addCase(selectArticlesAsyncThunk.rejected, (state, action) => {
                 state.status = 'error';
                 state.error = action.error.message; // Store the error message
             });
@@ -41,8 +44,8 @@ export const articleSlice = createSlice({
 });
 
 // actions
-
 export const { reset } = articleSlice.actions;
+
 // selectors
 export const selectArticles = (state) => state.articles.articles;
 
