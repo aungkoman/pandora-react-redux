@@ -1,17 +1,29 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { articleSelectApi } from './articleAPI';
+import { articleSelectApi, articleDetailSelectApi } from './articleAPI';
 
 // ဒါက Initial State
 const initialState = {
     articles: [],
     status: 'idle', // idle, loading, error , succeeded
-    error: null
+    error: null,
+    article : {},
+    article_status : 'idle',
+    article_error : null
 };
 
 export const selectArticlesAsyncThunk = createAsyncThunk(
     'articles/select',
     async ({ filter, page, accessToken }) => {
         const response = await articleSelectApi({ filter, page, accessToken });
+        return response.data;
+    }
+);
+
+
+export const selectArticleDetailAsyncThunk = createAsyncThunk(
+    'articles/detail',
+    async ({ id, accessToken }) => {
+        const response = await articleDetailSelectApi({ id, accessToken });
         return response.data;
     }
 );
@@ -38,6 +50,18 @@ export const articleSlice = createSlice({
             })
             .addCase(selectArticlesAsyncThunk.rejected, (state, action) => {
                 state.status = 'error';
+                state.error = action.error.message; // Store the error message
+            })
+            // detail api listener
+            .addCase(selectArticleDetailAsyncThunk.pending, (state) => {
+                state.article_status = 'loading';
+            })
+            .addCase(selectArticleDetailAsyncThunk.fulfilled, (state, action) => {
+                state.article_status = 'succeeded';
+                state.article = action.payload;
+            })
+            .addCase(selectArticleDetailAsyncThunk.rejected, (state, action) => {
+                state.article_status = 'error';
                 state.error = action.error.message; // Store the error message
             });
     },

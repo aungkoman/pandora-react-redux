@@ -47,15 +47,15 @@ export function articleSelectApi({ filter, page, accessToken }) {
 
 
 // A mock function to mimic making an async request for data
-export function articleSelectApi({ filter, page, accessToken }) {
+export function articleDetailSelectApi({ id, accessToken }) {
 
-    console.log("articleSelectApi");
-    console.log({ filter, page, accessToken });
+    console.log("articleDetailSelectApi");
+    console.log({ id, accessToken  });
     
 
     return new Promise((resolve, reject) => {
         // TODO: filter need to be spread
-        let endpoint = ARTICLE_API_ENDPOINT + "?page=" + page;
+        let endpoint = ARTICLE_API_ENDPOINT + "/" + id;
         const config = {
             headers: {
                 'Authorization': `Bearer ${accessToken}`
@@ -71,20 +71,4 @@ export function articleSelectApi({ filter, page, accessToken }) {
                 // reject(error);
             });
     });
-
-
-    // Send the POST request
-    /*
-    return axios.post(apiUrl, postData)
-    .then((response) => {
-      // Handle the response data here
-      console.log('Response:', response.data);
-      return response.data;
-    })
-    .catch((error) => {
-      // Handle any errors that occurred during the request
-      console.error('Error:', error);
-      return error;
-    });
-    */
 }
