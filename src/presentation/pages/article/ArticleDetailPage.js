@@ -5,6 +5,7 @@ import {
   Avatar,
   Typography,
   Button,
+  Divider,
 } from "@mui/material";
 import { ArrowForward } from "@mui/icons-material";
 import { Link, useParams } from "react-router-dom";
@@ -91,14 +92,12 @@ const ArticleDetailPage = () => {
         >
           {article.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary" mb={5}>
-          {article.content}
-        </Typography>
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            pb: 2
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -110,6 +109,38 @@ const ArticleDetailPage = () => {
           </Box>
 
         </Box>
+
+        <Typography variant="body2" color="text.secondary" mb={5}>
+          {article.content}
+        </Typography>
+        
+
+        <Typography variant="subtitle1">Comments</Typography>
+        
+        {article.comments.map((comment, i) => 
+          <Box
+            sx={{
+              display: "flex", flexDirection: "row"
+            }}
+          >
+             <Avatar
+                    src={comment.user.photo_url}
+                    sx={{ width: 28, height: 28, mr: 1 }}
+              />
+              <Box
+                sx={{
+                  display: "flex", flexDirection: "column"
+                }}
+              >
+                    <Typography variant="subtitle1">{comment.user.name}</Typography>
+                    <Typography variant="subtitle1">{comment.content}</Typography>
+                    <hr/>
+                </Box>
+            
+            
+              
+          </Box>
+        )}
       </Box>
       }
     </Container>

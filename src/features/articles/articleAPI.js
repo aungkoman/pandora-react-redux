@@ -19,11 +19,11 @@ export function articleSelectApi({ filter, page, accessToken }) {
         };
         axios.get(endpoint, config)
             .then(response => {
-                setTimeout(() => resolve(response.data), 3000);
+                setTimeout(() => resolve(response.data), 500);
                 //resolve(response.data);
             })
             .catch(error => {
-                setTimeout(() => reject(error), 3000);
+                setTimeout(() => reject(error), 500);
                 // reject(error);
             });
     });
@@ -63,11 +63,11 @@ export function articleDetailSelectApi({ id, accessToken }) {
         };
         axios.get(endpoint, config)
             .then(response => {
-                setTimeout(() => resolve(response.data), 3000);
+                setTimeout(() => resolve(response.data), 500);
                 //resolve(response.data);
             })
             .catch(error => {
-                setTimeout(() => reject(error), 3000);
+                setTimeout(() => reject(error), 500);
                 // reject(error);
             });
     });

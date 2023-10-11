@@ -1,0 +1,31 @@
+{
+    "id": 1,
+    "title": "The Snail and the Fast Car",
+    "content": "A snail walks into a car dealership and asks the salesperson, 'I'd like to buy a fast car, but I want it to have an 'S' on it.' The salesperson, puzzled, says, 'I'm not sure we have any cars like that.' The snail replies, 'Well, if you don't have one, could you make one for me? I'm willing to pay extra.' The salesperson agrees, and a few weeks later, the snail returns to the dealership. The salesperson hands over a sleek sports car with a large 'S' painted on it. The snail looks at it and says, 'Now, that's more like it!' He then gets in the car, revs up the engine, and speeds away. But before you know it, you hear a voice echoing, 'Ssssssssslow down!'",
+    "created_at": "2023-09-27 02:37:44",
+    "updated_at": "2023-09-27 02:37:44",
+    "user": {
+        "id": 1,
+        "name": "admin",
+        "photo_url": "https://i.ibb.co/tZd24nZ/fotor-ai-2023053095036.png"
+    },
+    "up_vote": 3,
+    "down_vote": 2,
+    "comment_count": 3,
+    "comments": [
+        {
+            "id": 1,
+            "article_id": 1,
+            "user_id": 1,
+            "content": "Haha, that snail joke had me laughing!",
+            "user": {
+                "id": 1,
+                "name": "admin",
+                "photo_url": "https://i.ibb.co/tZd24nZ/fotor-ai-2023053095036.png"
+            },
+            "created_at": "2023-09-27 02:37:44",
+            "updated_at": "2023-09-27 02:37:44"
+        }
+    ],
+    "user_vote": 1
+}
