@@ -19,12 +19,12 @@ export const selectArticlesAsyncThunk = createAsyncThunk(
     'articles/select',
     async ({ filter, page2, accessToken }, { getState }) => { // <-- destructure getState method
         const state = getState(); // <-- invoke and access state object
-        console.log("selectArticlesAsyncThunk getState for pages");
-        console.log(state.articles.page);
-        console.log(state.articles.prev_page);
-        console.log(state.articles.status);
+        // console.log("selectArticlesAsyncThunk getState for pages");
+        // console.log(state.articles.page);
+        // console.log(state.articles.prev_page);
+        // console.log(state.articles.status);
         if(state.articles.prev_page != state.articles.page){
-            console.log("need to throw");
+            // console.log("need to throw");
             throw new Error('Whoops! still loading... ');
         }
 

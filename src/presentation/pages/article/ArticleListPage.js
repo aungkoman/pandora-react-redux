@@ -117,9 +117,7 @@ const ArticleListPage = () => {
   // article section
   const articles = useSelector(selectArticles);
   const page = useSelector(selectArticlesPage);
-  // Create a ref to capture the current 'page' value
-  const pageRef = useRef(page);
-  const [pageLocal, setPageLocal] = useState(1)
+  
   
 
 
@@ -177,11 +175,23 @@ const ArticleListPage = () => {
           <Typography variant="body1" color="text.secondary">
            Read, Write and Connect Anonymously
           </Typography>
-          { status == "idle" ? <Link to="/login">Login</Link> : "" }
+          { status == "idle" ? <Link to={"/login"}>
+                    <Button endIcon={<ArrowForward />} color="primary" size="small">
+                      Login
+                    </Button>
+                  </Link> : "" }
           <br />
-          { status == "idle" ? <Link to="/register">Register</Link> : "" }
+          { status == "idle" ? <Link to={"/register"}>
+                    <Button endIcon={<ArrowForward />} color="primary" size="small">
+                      Register
+                    </Button>
+                  </Link> : "" }
           <br />
-          { status == "succeeded" ? <Link to="/logout">Logout</Link> : "" }
+          { status == "succeeded" ? <Link to={"/logout"}>
+                    <Button endIcon={<ArrowForward />} color="primary" size="small">
+                      Logout
+                    </Button>
+                  </Link> : "" }
          
           
         </Box>
@@ -205,7 +215,7 @@ const ArticleListPage = () => {
                   mb={2}
                   sx={{ fontWeight: "bold" }}
                 >
-                  {page} - {pageLocal} {data.title}
+                  {data.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary" mb={5}>
                   {data.content.slice(0, 200)} { data.content.length > 200 ? "..." : "" }
