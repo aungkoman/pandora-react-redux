@@ -32,6 +32,26 @@ ui မှာ စစ်ကြည့်ရင်လည်း up to date ဖြစ�
 
 
 
+Time One
+---
+prev_page 0 
+page 1
+
+Time Two
+---
+prev_page 1
+page 1
+-> it's valid, make api request
+
+Time Three (same event dispatched )
+----
+prev_page 2
+page 1
+-> it's invalid, throw an error 
+
+Error ဖြစ်သွားရင် ပြန်လျော့ပေး
+
+
 *** Article Detail *** ရပြီ။
 
 

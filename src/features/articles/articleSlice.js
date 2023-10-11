@@ -7,6 +7,9 @@ const initialState = {
     status: 'idle', // idle, loading, error , succeded
     error: null,
     page : 1,
+    should_load : false,
+    prev_page : 0,
+
     article : {},
     article_status : 'idle',
     article_error : null
@@ -14,7 +17,18 @@ const initialState = {
 
 export const selectArticlesAsyncThunk = createAsyncThunk(
     'articles/select',
-    async ({ filter, page, accessToken }) => {
+    async ({ filter, page2, accessToken }, { getState }) => { // <-- destructure getState method
+        const state = getState(); // <-- invoke and access state object
+        console.log("selectArticlesAsyncThunk getState for pages");
+        console.log(state.articles.page);
+        console.log(state.articles.prev_page);
+        console.log(state.articles.status);
+        if(state.articles.prev_page != state.articles.page){
+            console.log("need to throw");
+            throw new Error('Whoops! still loading... ');
+        }
+
+        let page = state.articles.page;
         const response = await articleSelectApi({ filter, page, accessToken });
         return response.data;
     }
@@ -44,16 +58,24 @@ export const articleSlice = createSlice({
         builder
             .addCase(selectArticlesAsyncThunk.pending, (state) => {
                 state.status = 'loading';
+                state.prev_page++; 
             })
             .addCase(selectArticlesAsyncThunk.fulfilled, (state, action) => {
                 state.status = 'succeded';
-                // increase page 
-                state.page++;
-                console.log("state.page");
-                console.log(state.page);
-                state.articles.push(...action.payload);
+                if(action.payload.length == 0){
+                    // do nothing 
+                }
+                else{
+                    // increase page 
+                    state.page++;
+                    console.log("state.page");
+                    console.log(state.page);
+                    state.articles.push(...action.payload);
+                }
+                
             })
             .addCase(selectArticlesAsyncThunk.rejected, (state, action) => {
+                state.prev_page--; 
                 state.status = 'error';
                 state.error = action.error.message; // Store the error message
             })

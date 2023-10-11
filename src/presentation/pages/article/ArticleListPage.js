@@ -123,16 +123,7 @@ const ArticleListPage = () => {
   
 
 
-  // debugging page 
   useEffect(() => {
-    console.log("ArticleListPage useEffect");
-    console.log("Initial page value:", page); // Log the initial value
-    setPageLocal(page);
-  }, [page]); // Include 'page' as a dependency
-
-
-  useEffect(() => {
-    console.log("ArticleListPage useEffect");
     window.addEventListener('scroll', handleScroll);
     let data = {
       page,
@@ -155,25 +146,12 @@ const ArticleListPage = () => {
       // You have reached the bottom or near the bottom
       console.log('Scrollbar reached the bottom.');
       // Add your logic here
-      if(status == "idle"){
-        // dispatch article select action
-
-        // ဒီ Page က state ကို မသိဘူးဖြစ်နေတယ်။
-        // state update ကို မသိတာ။ 
-
-        
-        // Access the 'page' value from the ref
-        // const ourPage = pageRef.current;
-        let data = {
-          page : pageLocal,
-          filter : {},
-          accessToken : user.accessToken
-        }
-
-        console.log("pageLocal is ");
-        console.log(pageLocal);
-        dispatch(selectArticlesAsyncThunk(data));
+      let data = {
+        page : 0,
+        filter : {},
+        accessToken : user.accessToken
       }
+      dispatch(selectArticlesAsyncThunk(data));
     }
   }
 
@@ -227,7 +205,7 @@ const ArticleListPage = () => {
                   mb={2}
                   sx={{ fontWeight: "bold" }}
                 >
-                  {page} - {data.title}
+                  {page} - {pageLocal} {data.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary" mb={5}>
                   {data.content.slice(0, 200)} { data.content.length > 200 ? "..." : "" }
