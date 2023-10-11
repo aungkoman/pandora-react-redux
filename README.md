@@ -18,6 +18,18 @@ Body ရဲ့ scroll က အောက်ဆုံးအထိ ရောက်�
 Body ရဲ့ scroll event ကိုလည်း ဒီ Page ကပဲ​ handle လုပ်သင့်တယ်။
 Global မှာ မလုပ်သင့်။
 
+စာရှည်ရင် ဖျတ်မယ်။
+
+
+
+### State က code မှာ up to date မရ
+
+it's always 1
+
+page ဆိုတဲ့ state တစ်ခု ရှိတယ်။
+ui မှာ စစ်ကြည့်ရင်လည်း up to date ဖြစ်တယ်။
+ဒါပေမယ့် function ထဲမှာ console.log ထုတ်ကြည့်ရင် it's alway initial value.
+
 
 
 *** Article Detail *** ရပြီ။

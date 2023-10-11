@@ -49,6 +49,8 @@ export const articleSlice = createSlice({
                 state.status = 'succeded';
                 // increase page 
                 state.page++;
+                console.log("state.page");
+                console.log(state.page);
                 state.articles.push(...action.payload);
             })
             .addCase(selectArticlesAsyncThunk.rejected, (state, action) => {

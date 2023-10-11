@@ -20,7 +20,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate  } from 'react-router-dom';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import {
   // thunks
@@ -117,8 +117,18 @@ const ArticleListPage = () => {
   // article section
   const articles = useSelector(selectArticles);
   const page = useSelector(selectArticlesPage);
+  // Create a ref to capture the current 'page' value
+  const pageRef = useRef(page);
+  const [pageLocal, setPageLocal] = useState(1)
   
 
+
+  // debugging page 
+  useEffect(() => {
+    console.log("ArticleListPage useEffect");
+    console.log("Initial page value:", page); // Log the initial value
+    setPageLocal(page);
+  }, [page]); // Include 'page' as a dependency
 
 
   useEffect(() => {
@@ -147,11 +157,21 @@ const ArticleListPage = () => {
       // Add your logic here
       if(status == "idle"){
         // dispatch article select action
+
+        // ဒီ Page က state ကို မသိဘူးဖြစ်နေတယ်။
+        // state update ကို မသိတာ။ 
+
+        
+        // Access the 'page' value from the ref
+        // const ourPage = pageRef.current;
         let data = {
-          page,
+          page : pageLocal,
           filter : {},
           accessToken : user.accessToken
         }
+
+        console.log("pageLocal is ");
+        console.log(pageLocal);
         dispatch(selectArticlesAsyncThunk(data));
       }
     }
@@ -207,10 +227,10 @@ const ArticleListPage = () => {
                   mb={2}
                   sx={{ fontWeight: "bold" }}
                 >
-                  {data.title}
+                  {page} - {data.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary" mb={5}>
-                  {data.content}
+                  {data.content.slice(0, 200)} { data.content.length > 200 ? "..." : "" }
                 </Typography>
                 <Box
                   sx={{
@@ -240,5 +260,5 @@ const ArticleListPage = () => {
                 }
       </Container>
     );
-  }
-  export default ArticleListPage;
+}
+export default ArticleListPage;
