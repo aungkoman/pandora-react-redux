@@ -1,5 +1,22 @@
 # React Redux Toolkit CODELAB
 
+## 2023-10-11 Wed
+
+- [ ] Register API Integration
+- [ ] User Profile UI 
+- [ ] Update user profile UI, API
+- [ ] New Post UI, API
+- [ ] Edit Post UI, API
+- [ ] Context Menu for report, edit , delete article
+- [ ] Up Vote, Down Vote and Comment display UI in home page and detail
+- [ ] Create comment ui 
+- [ ] Edit comment ui
+- [ ] Delete comment ui
+- [ ] Context menu for report , edit and delete comment 
+
+
+- [ ] Deployment pipeline from cloudflare 
+
 ## 2023-10-10 Tue
 
 Promise နဲ့ AsyncThunk အကြောင်း ရိပ်ဖမ်းသံဖမ်း နားလည်။
