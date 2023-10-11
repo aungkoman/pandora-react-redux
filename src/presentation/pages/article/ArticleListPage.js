@@ -26,7 +26,8 @@ import {
   // thunks
   selectArticlesAsyncThunk,
   // selectors
-  selectArticles
+  selectArticles,
+  selectArticlesPage
 } from './../../../features/articles/articleSlice';
 
 
@@ -115,6 +116,8 @@ const ArticleListPage = () => {
   const user = useSelector(loggedInUser);
   // article section
   const articles = useSelector(selectArticles);
+  const page = useSelector(selectArticlesPage);
+  
 
 
 
@@ -122,7 +125,7 @@ const ArticleListPage = () => {
     console.log("ArticleListPage useEffect");
     window.addEventListener('scroll', handleScroll);
     let data = {
-      page : 1,
+      page,
       filter : {},
       accessToken : user.accessToken
     }
@@ -142,7 +145,15 @@ const ArticleListPage = () => {
       // You have reached the bottom or near the bottom
       console.log('Scrollbar reached the bottom.');
       // Add your logic here
-      // if(status)
+      if(status == "idle"){
+        // dispatch article select action
+        let data = {
+          page,
+          filter : {},
+          accessToken : user.accessToken
+        }
+        dispatch(selectArticlesAsyncThunk(data));
+      }
     }
   }
 

@@ -6,6 +6,7 @@ const initialState = {
     articles: [],
     status: 'idle', // idle, loading, error , succeded
     error: null,
+    page : 1,
     article : {},
     article_status : 'idle',
     article_error : null
@@ -34,6 +35,9 @@ export const articleSlice = createSlice({
     reducers: {
         reset: (state) => {
             return initialState;
+        },
+        refreshPage: (state) => {
+            state.page = initialState.page;
         }
     },
     extraReducers: (builder) => {
@@ -43,6 +47,8 @@ export const articleSlice = createSlice({
             })
             .addCase(selectArticlesAsyncThunk.fulfilled, (state, action) => {
                 state.status = 'succeded';
+                // increase page 
+                state.page++;
                 state.articles.push(...action.payload);
             })
             .addCase(selectArticlesAsyncThunk.rejected, (state, action) => {
@@ -65,13 +71,14 @@ export const articleSlice = createSlice({
 });
 
 // actions
-export const { reset } = articleSlice.actions;
+export const { reset, refreshPage } = articleSlice.actions;
 
 // selectors
 // article list
 export const selectArticles = (state) => state.articles.articles;
 export const selectArticlesStatus = (state) => state.articles.status;
 export const selectArticlesError = (state) => state.articles.error;
+export const selectArticlesPage = (state) => state.articles.page;
 // article detail
 export const selectArticleDetail = (state) => state.articles.article;
 export const selectArticleDetailStatus = (state) => state.articles.article_status;
