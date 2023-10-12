@@ -41,6 +41,7 @@ import {
   // selectors
   loggedInUser
 } from './../../../features/user/userSlice';
+import UnstyledTextareaIntroduction from "../../components/form/UnstyledTextareaIntroduction";
 
 const data = {
   title: "React with MUI 5 Blog 1 Section",
@@ -126,10 +127,10 @@ const ArticleDetailPage = () => {
             }}
           >
             <Stack direction="row" spacing={2}>
-              <Button variant="outlined" startIcon={<ArrowCircleUpIcon />}>
+              <Button variant={article.user_vote == 1 ? "contained" : "outlined"} startIcon={<ArrowCircleUpIcon />}>
                 Up Vote ({article.up_vote})
               </Button>
-              <Button variant="contained" startIcon={<ArrowCircleDownIcon />}>
+              <Button variant={article.user_vote == 0 ? "contained" : "outlined"} startIcon={<ArrowCircleDownIcon />}>
                 Down Vote ({article.down_vote})
               </Button>
             </Stack>
@@ -162,6 +163,8 @@ const ArticleDetailPage = () => {
 
             </Box>
           )}
+          <UnstyledTextareaIntroduction />
+          
         </Box>
       }
     </Container>
