@@ -18,6 +18,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 
+import DeleteIcon from '@mui/icons-material/Delete';
+import SendIcon from '@mui/icons-material/Send';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
+import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
+
 // redux
 
 import {
@@ -67,81 +72,97 @@ const ArticleDetailPage = () => {
   // dispatch select article detail api
   useEffect(() => {
     let accessToken = user.accessToken;
-    let data = {id,accessToken };
+    let data = { id, accessToken };
     dispatch(selectArticleDetailAsyncThunk(data));
   }, []); // Include history as a dependency
 
   return (
     <Container sx={{ py: { xs: 8, lg: 16 } }}>
 
-      { status != 'succeeded' ? "Loading" : 
-      <Box
-        sx={{
-          p: 6,
-          border: 1,
-          borderColor: "grey.200",
-          borderRadius: 1,
-          boxShadow: 1,
-        }}
-      >
-        <Typography
-          variant="h4"
-          component="h2"
-          mb={2}
-          sx={{ fontWeight: "bold" }}
-        >
-          {article.title}
-        </Typography>
+      {status != 'succeeded' ? "Loading" :
         <Box
           sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            pb: 2
+            p: 6,
+            border: 1,
+            borderColor: "grey.200",
+            borderRadius: 1,
+            boxShadow: 1,
           }}
         >
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Avatar
-              src={article.user.photo_url}
-              sx={{ width: 28, height: 28, mr: 1 }}
-            />
-            <Typography variant="subtitle1">{article.user.name}</Typography>
+          <Typography
+            variant="h4"
+            component="h2"
+            mb={2}
+            sx={{ fontWeight: "bold" }}
+          >
+            {article.title}
+          </Typography>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              pb: 2
+            }}
+          >
+            <Box sx={{ display: "flex", alignItems: "center" }}>
+              <Avatar
+                src={article.user.photo_url}
+                sx={{ width: 28, height: 28, mr: 1 }}
+              />
+              <Typography variant="subtitle1">{article.user.name}</Typography>
+            </Box>
+
           </Box>
 
-        </Box>
+          <Typography variant="body2" color="text.secondary" mb={5}>
+            {article.content}
+          </Typography>
 
-        <Typography variant="body2" color="text.secondary" mb={5}>
-          {article.content}
-        </Typography>
-        
-
-        <Typography variant="subtitle1">Comments</Typography>
-        
-        {article.comments.map((comment, i) => 
+          { /* list of vote and comment count */}
           <Box
             sx={{
               display: "flex", flexDirection: "row"
             }}
           >
-             <Avatar
-                    src={comment.user.photo_url}
-                    sx={{ width: 28, height: 28, mr: 1 }}
+            <Stack direction="row" spacing={2}>
+              <Button variant="outlined" startIcon={<ArrowCircleUpIcon />}>
+                Up Vote ({article.up_vote})
+              </Button>
+              <Button variant="contained" startIcon={<ArrowCircleDownIcon />}>
+                Down Vote ({article.down_vote})
+              </Button>
+            </Stack>
+          </Box>
+
+
+          <Typography variant="subtitle1">Comments</Typography>
+
+          {article.comments.map((comment, i) =>
+            <Box
+              sx={{
+                display: "flex", flexDirection: "row"
+              }}
+            >
+              <Avatar
+                src={comment.user.photo_url}
+                sx={{ width: 28, height: 28, mr: 1 }}
               />
               <Box
                 sx={{
                   display: "flex", flexDirection: "column"
                 }}
               >
-                    <Typography variant="subtitle1">{comment.user.name}</Typography>
-                    <Typography variant="subtitle1">{comment.content}</Typography>
-                    <hr/>
-                </Box>
-            
-            
-              
-          </Box>
-        )}
-      </Box>
+                <Typography variant="subtitle1">{comment.user.name}</Typography>
+                <Typography variant="subtitle1">{comment.content}</Typography>
+                <hr />
+              </Box>
+
+
+
+            </Box>
+          )}
+        </Box>
       }
     </Container>
   );
