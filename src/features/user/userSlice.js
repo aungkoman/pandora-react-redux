@@ -114,6 +114,9 @@ export const userSlice = createSlice({
       .addCase(registerThunk.rejected, (state, action) => {
         state.status = 'error';
         state.error = action.error.message; // Store the error message
+        state.errors = JSON.parse(action.error.message); // Store the error message
+        console.log("registerThunk.rejected");
+        console.log(action);
       });
   },
 });
