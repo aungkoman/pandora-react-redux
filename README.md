@@ -17,12 +17,25 @@ so that I can access full range of services and features offered.
 ** Acceptance Criteria **
 
 - Register Page ကို ရောက်တဲ့အခါ Regsiter လုပ်ဖို့အတွက် အောက်က အချက်တွေ တောင်းမယ်။
+  - display name
   - email
   - password
-  - display name
+  - confirm password
 - Register လုပ်ဖို့ ဖြည့်လိုက်တဲ့ အချက်အလက် က မစုံရင် မစုံတဲ့အကြောင်း feedback ပြရမယ်။
+- Authenticated လုပ်နေစဉ် အတောအတွင်းမှာ Loading Indicator ပြရမယ်။
 - Email က စနစ်ထဲမှ ာရှိပြီးသားဆိုရင် ပြောင်းဖို့ပြောရမယ်။
+- အောင်မြင်တယ်ဆိုရင် နောက် page တစ်ခုကို အလိုအလျောက် ပြောင်းသွားရမယ်။
 
+
+
+**Definition of Done**:
+
+- The registration process should be tested for functionality, security, and user-friendliness.
+- Relevant error messages and notifications are displayed when needed.
+- The email verification system should work reliably.
+- All user stories related to registration should be implemented.
+- The code is reviewed and approved by a team member.
+- Documentation is updated to reflect the new registration process.
 
 It's all about thinking, foucs.
 
