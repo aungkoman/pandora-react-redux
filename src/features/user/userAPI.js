@@ -30,11 +30,11 @@ export function loginApi({email, password}) {
 }
 
 
-export function registerApi({username, email, password, confirm_password}) {
+export function registerApi({name, email, password, confirm_password}) {
   console.log("registerApi");
-  console.log({username, email, password, confirm_password});
+  console.log({name, email, password, confirm_password});
   // Define the data you want to send in the request body (usually as an object)
-  const postData = {username, email, password, confirm_password};
+  const postData = {name, email, password, confirm_password};
   return new Promise((resolve, reject) => {
     axios.post(REGISTER_API_ENDPOINT, postData)
       .then(response => {

@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { loginApi } from './userAPI';
+import { loginApi, registerApi } from './userAPI';
 
 // ဒါက Initial State
 const initialState = {
@@ -46,8 +46,8 @@ export const loginAsync = createAsyncThunk(
 
 export const registerThunk = createAsyncThunk(
   'user/register',
-  async ({ username, email, password, confirm_password }) => {
-    const response = await loginApi({ email, password });
+  async ({ name, email, password, confirm_password }) => {
+    const response = await registerApi({ name, email, password, confirm_password });
     console.log(response);
     return response.data;
   }
