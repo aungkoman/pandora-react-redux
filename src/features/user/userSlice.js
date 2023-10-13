@@ -20,7 +20,8 @@ const initialState = {
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9"
   },
   status: 'idle', // idle, loading, error , succeeded
-  error: null
+  error: null,
+  errors : {}, // for user register form validation errors
 };
 
 export const loginAsync = createAsyncThunk(
@@ -60,6 +61,11 @@ export const userSlice = createSlice({
   reducers: {
     logout: (state) => {
       return initialState;
+    },
+    setErrors: (state, action)  => {
+      state.errors = action.payload ;
+      //console.log("userSlice->setErrors");
+      //console.log(localErrors);
     },
     setStatusIdle: (state) => {
       state.status = "idle";
@@ -114,14 +120,15 @@ export const userSlice = createSlice({
 
 // actions
 
-export const { logout, setStatusIdle, increment, decrement, incrementByAmount } = userSlice.actions;
+export const { logout, setErrors, setStatusIdle, increment, decrement, incrementByAmount } = userSlice.actions;
 // selectors
-// ဒါက Gloal State ထဲက ယူပြရမှာ။ 
-// Combined Reducer ခေါ်မလားပဲ။
 export const loginStatus = (state) => state.user.status;
 export const loginError = (state) => state.user.error;
 export const loggedInUser = (state) => state.user.user;
+export const selectUserRegistrationValidationError = (state) => state.user.errors;
 
 // export reducer
 // ဒါက combined reducer က ယူသုံးဖို့ ထင်ရဲ့။
+// ဒါက Gloal State ထဲက ယူပြရမှာ။ 
+// Combined Reducer ခေါ်မလားပဲ။
 export default userSlice.reducer;

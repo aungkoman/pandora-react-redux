@@ -19,6 +19,10 @@ import {
   // selectors
   loginStatus,
   loginError,
+  selectUserRegistrationValidationError,
+
+  // actions
+  setErrors,
 
   // thunks
   registerThunk,
@@ -38,13 +42,14 @@ const RegisterPage = () => {
     password: '',
     confirm_password: '',
   });
-  const [errors, setErrors] = useState({}); // Object to store validation errors
+  // const [errors, setErrors] = useState({}); // Object to store validation errors
 
 
 
   // selector hooks
   const status = useSelector(loginStatus);
   const error = useSelector(loginError);
+  const errors = useSelector(selectUserRegistrationValidationError);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -78,11 +83,12 @@ const RegisterPage = () => {
     }
 
     if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-
+      // setErrors(validationErrors);
+      dispatch(setErrors(validationErrors));
     } else {
       // Submit the form or send data to the server
-      setErrors({}); // Clear any previous errors
+      // setErrors({}); // Clear any previous errors
+      dispatch(setErrors({}));
       console.log(formData); // You can send this data to your server for registration
       dispatch(registerThunk(formData));
       // return;

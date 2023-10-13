@@ -50,6 +50,46 @@ It's all about thinking, foucs.
 
 ဒါက Local အတွက် အတော်လေးအဆင်ပြေတဲ့ ကိစ္စ။
 
+### Remote Validation ကို ဘယ်လို ပြမလဲ?
+
+error message ကို အရင်စစ်ရမယ်။
+
+```json
+{
+  "status"  : false,
+  "msg" : "this is message",
+  "data" : {},
+  "errors" : {
+    "input_name_one" : "reasons",
+    "input_name_two" : "reasons",
+  }
+}
+```
+
+ဒါဆို errors object က remote မှာ အိုကေသွားပြီ။
+တစ်ခုပဲ​ စောနက internal state မှာ သိမ်းထားတဲ့ Error ကို Redux Store မှာ ထည့်ပေးရမှာလား?
+
+
+ဒါဆို အခု ပြဿနာက React ဘက်မှာဆိုရင်
+error object ကို ဘယ်မှာ ထားရမလဲ?
+
+internal state အနေနဲ့ သုံးမလား
+redux store အနေနဲ့ ထားမလား?
+
+redux store မှာ ထားမှပဲ api က ပြန်လာတာကို သိနိုင်မယ်။
+internal state မှာ ထားရင် နှစ်ခု ထားရမယ်။
+အလုပ်ပိုရှုပ်မယ်။
+ဒါကြောင့် Redux Store မှာပဲ​ထားလိုက်မယ်။
+
+
+
+*** Valid ဖြစ်တဲ့အကြောင်းလည်း ပြောဖို့လိုမယ် ***
+
+remote က error body ကို ယူဖို့ အရင်လုပ်ရမယ်။
+
+အခုက http response code အဆင်မပြေတာနဲ့ တစ်ခါတည်း throw သွားတာ။
+
+
 
 
 
