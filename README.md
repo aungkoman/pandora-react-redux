@@ -1,5 +1,35 @@
 # React Redux Toolkit CODELAB
 
+## 2023-10-13 User Story and Backlogs
+
+User Register စလုပ်မယ်။
+validation လည်း လိုမယ်။
+
+
+### User Story for Register
+
+** Story **
+
+As a new user can register,
+I want to create a new account on the platform,
+so that I can access full range of services and features offered.
+
+** Acceptance Criteria **
+
+- Register Page ကို ရောက်တဲ့အခါ Regsiter လုပ်ဖို့အတွက် အောက်က အချက်တွေ တောင်းမယ်။
+  - email
+  - password
+  - display name
+- Register လုပ်ဖို့ ဖြည့်လိုက်တဲ့ အချက်အလက် က မစုံရင် မစုံတဲ့အကြောင်း feedback ပြရမယ်။
+- Email က စနစ်ထဲမှ ာရှိပြီးသားဆိုရင် ပြောင်းဖို့ပြောရမယ်။
+
+
+It's all about thinking, foucs.
+
+
+
+
+
 ## 2023-10-11 Wed
 
 - [ ] Register API Integration
