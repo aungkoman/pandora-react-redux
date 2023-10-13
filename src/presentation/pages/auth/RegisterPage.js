@@ -11,11 +11,14 @@ const RegisterPage = () => {
     const handleSubmit = (event) => {
       event.preventDefault();
       const data = new FormData(event.currentTarget);
-      console.log({
-        email: data.get("email"),
-        password: data.get("password"),
-      });
-      // 
+      let email = data.get("email");
+      let password = data.get("password");
+      let confirm_password = data.get("confirm_password");
+      let username = data.get("username");
+      let postData = {username, email, password, confirm_password};
+      console.log(postData);
+      // TODO: client side validation
+      // dispatch register
     };
   
     return (
