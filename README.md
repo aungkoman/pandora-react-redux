@@ -41,6 +41,16 @@ It's all about thinking, foucs.
 
 
 
+### Local Validation ဘယ်လို လုပ်လိုက်လဲ?
+
+- Internal State မှာ Form Data တစ်ခုလုံးကို သိမ်းထားပြီး input onChange မှာ သက်ဆိုင်ရာ data ကို setState လုပ်ပေးထားတယ်။
+- onSubmit မှာ Field တစ်ခုချင်းစီကို စစ်ပြီး error object မှာ အကြောင်းပြချက်တွေ ရေးပေးထားတယ်။
+- error object မှာ ရှင်းရင် api call ခေါ်ဖို့ သက်ဆိုင်ရာ Thunk Action ကို Dispatch လုပ်
+- မရှင်းရင် setState(error) လုပ်
+
+ဒါက Local အတွက် အတော်လေးအဆင်ပြေတဲ့ ကိစ္စ။
+
+
 
 
 ## 2023-10-11 Wed
