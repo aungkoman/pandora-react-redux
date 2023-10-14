@@ -6,6 +6,20 @@ User Register စလုပ်မယ်။
 validation လည်း လိုမယ်။
 
 
+*** Need to add network error handling on home page ***
+
+အင်တာနက် မရှိလျှင်
+ဆာဗာမှ အကြောင်းမပြန်လျှင် 
+
+အခြေအနေ အကျိုးအကြောင်း Home Page မှာ ပြသပြီး
+Refresh လုပ်နိုင်စေရန်။
+
+ပထမဆုံး အကြိမ်ဆိုရင် -> Refresh
+Pagination ဆိုရင် on button scroll
+No Data ဆိုရင် Data မရှိတော့ကြောင်း ပြောပြီး Event Listener ပါ ပြန်ဖြုတ်ရမယ်.
+
+
+
 ### User Story for Register
 
 ** Story **
