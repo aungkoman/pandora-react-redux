@@ -13,6 +13,10 @@ success ဖြစ်သွားရင် အခြား Page ကို ရေ�
 npm install firebase
 
 
+https://www.freecodecamp.org/news/use-firebase-authentication-in-a-react-app/
+
+
+
 ## 2023-10-13 User Story and Backlogs
 
 User Register စလုပ်မယ်။

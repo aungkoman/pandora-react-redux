@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import {  createUserWithEmailAndPassword  } from 'firebase/auth';
+import {  createUserWithEmailAndPassword, sendEmailVerification  } from 'firebase/auth';
 import { auth } from '../../../firebase/firebase';
  
 const FirebaseSignUpPage = () => {
@@ -17,8 +17,14 @@ const FirebaseSignUpPage = () => {
             // Signed in
             const user = userCredential.user;
             console.log(user);
-            navigate("/login")
+            // navigate("/login")
             // ...
+            sendEmailVerification(user)
+            .then(() => {
+                // Email verification sent!
+                let msg = 'An email verification link has been sent to ' + user.email;
+                console.log(msg);
+            });
         })
         .catch((error) => {
             const errorCode = error.code;

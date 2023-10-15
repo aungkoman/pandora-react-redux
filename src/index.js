@@ -20,6 +20,8 @@ import ForgotPasswordPage from './presentation/pages/auth/ForgotPasswordPage';
 import ConfirmOtpPage from './presentation/pages/auth/ConfirmOtpPage';
 import LogoutPage from './presentation/pages/auth/LogoutPage';
 import FirebaseSignUpPage from './presentation/pages/firebase/FirebaseSignUpPage';
+import FirebaseLoginPage from './presentation/pages/firebase/FirebaseLoginPage';
+import FirebaseHomePage from './presentation/pages/firebase/FirebaseHomePage';
 
 
 
@@ -36,6 +38,8 @@ root.render(
             <Route index element={<ArticleListPage   />} />
             <Route path="*" element={<NoPage />} />
             <Route path="/firebase-signup" element={<FirebaseSignUpPage />} />
+            <Route path="/firebase-login" element={<FirebaseLoginPage />} />
+            <Route path="/firebase-home" element={<FirebaseHomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/logout" element={<LogoutPage />} />
             <Route path="/register" element={<RegisterPage />} />
