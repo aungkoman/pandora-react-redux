@@ -1,5 +1,18 @@
 # React Redux Toolkit CODELAB
 
+## 2023-10-14 Validation စာ
+
+- User Story
+
+success ဖြစ်သွားရင် အခြား Page ကို ရောက်သွားမယ်။
+
+
+
+### Firebase Install လုပ်မယ်။ Email Verification အတွက်
+
+npm install firebase
+
+
 ## 2023-10-13 User Story and Backlogs
 
 User Register စလုပ်မယ်။
