@@ -61,6 +61,14 @@ limiting
 ရပေါက်ရလမ်းက ဘက်ပေါင်းစုံမှာရှိတယ်။
 
 
+Thunk တွေ ရေးရမယ့် အပိုင်း။
+Local business logic
+
+
+စပြီး Bug ပါပြီ။
+
+
+
 ## 2023-10-14 Validation စာ
 
 - User Story

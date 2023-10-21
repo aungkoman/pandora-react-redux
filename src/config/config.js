@@ -1,5 +1,6 @@
 // config.js
 // internal network
+//export const  API_HOST = "https://pandora.mmsoftware100.com"; //"http://localhost/pandora/public";
 export const  API_HOST = "http://localhost/pandora/public";
 export const  FILE_HOST = API_HOST;
 export const  API_VERSION = "/api/v1";
