@@ -77,6 +77,13 @@ const ArticleDetailPage = () => {
     dispatch(selectArticleDetailAsyncThunk(data));
   }, []); // Include history as a dependency
 
+  function upVoteClick(articleId){
+    console.log("upVoteClick " + articleId);
+  }
+  function downVoteClick(articleId){
+    console.log("downVoteClick " + articleId);
+  }
+
   return (
     <Container sx={{ py: { xs: 8, lg: 16 } }}>
 
@@ -127,10 +134,10 @@ const ArticleDetailPage = () => {
             }}
           >
             <Stack direction="row" spacing={2}>
-              <Button variant={article.user_vote == 1 ? "contained" : "outlined"} startIcon={<ArrowCircleUpIcon />}>
+              <Button onClick={()=> upVoteClick(article.id)} variant={article.user_vote == 1 ? "contained" : "outlined"} startIcon={<ArrowCircleUpIcon />}>
                 Up Vote ({article.up_vote})
               </Button>
-              <Button variant={article.user_vote == 0 ? "contained" : "outlined"} startIcon={<ArrowCircleDownIcon />}>
+              <Button onClick={()=> downVoteClick(article.id)}  variant={article.user_vote == 0 ? "contained" : "outlined"} startIcon={<ArrowCircleDownIcon />}>
                 Down Vote ({article.down_vote})
               </Button>
             </Stack>
