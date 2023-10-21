@@ -17,7 +17,7 @@ const initialState = {
     "role_id": 2,
     "created_at": "2023-09-27T02:37:44.000000Z",
     "updated_at": "2023-09-27T02:37:44.000000Z",
-    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9"
+    "access_token": null
   },
   status: 'idle', // idle, loading, error , succeeded
   error: null,

@@ -23,6 +23,16 @@ import SendIcon from '@mui/icons-material/Send';
 import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import ArrowCircleDownIcon from '@mui/icons-material/ArrowCircleDown';
 
+// dialogs
+import CircularProgress from '@mui/material/CircularProgress';
+import { blue, red } from '@mui/material/colors';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
+
 // redux
 
 import {
@@ -61,7 +71,7 @@ const ArticleDetailPage = () => {
   const dispatch = useDispatch();
 
   // internal state
-  const [loading, setLoading] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
 
   // selector hooks
   // article detail
@@ -82,9 +92,14 @@ const ArticleDetailPage = () => {
   function upVoteClick(articleId){
     console.log("upVoteClick " + articleId);
     console.log(user);
+    if(user.access_token == null){
+      // show dialog to login for this action
+      setShowDialog(true);
+      return;
+    }
     // need to dispatch thunk for upVote
     let article_id = articleId;
-    let access_token = user.accessToken;
+    let access_token = user.access_token;
     // toggle လုပ်တာလည်း ဖြစ်နိုင်မလား?
     dispatch(upVoteLocal({article_id, access_token}));
   }
@@ -92,11 +107,25 @@ const ArticleDetailPage = () => {
     console.log("downVoteClick " + articleId);
     // need to dispatch thunk for downVote
     console.log(user);
+    if(user.access_token == null){
+      // show dialog to login for this action
+      setShowDialog(true);
+      return;
+    }
     let article_id = articleId;
-    let access_token = user.accessToken;
+    let access_token = user.access_token;
     // toggle လုပ်တာလည်း ဖြစ်နိုင်မလား?
     dispatch(downVoteLocal({article_id, access_token}));
   }
+
+  const handleClose = () => {
+    console.log("handleClose");
+    setShowDialog(false);
+  };
+  const goToLoginPage = () => {
+    console.log("goToLoginPage");
+    navigate("/login");
+  };
 
   return (
     <Container sx={{ py: { xs: 8, lg: 16 } }}>
@@ -191,6 +220,32 @@ const ArticleDetailPage = () => {
           
         </Box>
       }
+      {/* dialogs */}
+
+
+      <Dialog
+        open={ showDialog }
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          Login!
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            You need to login to vote.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} autoFocus>
+            Close
+          </Button>
+          <Button onClick={goToLoginPage} autoFocus>
+            Login
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Container>
   );
 }
