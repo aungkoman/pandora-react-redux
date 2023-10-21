@@ -30,6 +30,8 @@ import {
   selectArticleDetailAsyncThunk,
   // actions
   reset,
+  upVoteLocal,
+  downVoteLocal,
   // selectors
   selectArticleDetail,
   selectArticleDetailStatus,
@@ -79,9 +81,21 @@ const ArticleDetailPage = () => {
 
   function upVoteClick(articleId){
     console.log("upVoteClick " + articleId);
+    console.log(user);
+    // need to dispatch thunk for upVote
+    let article_id = articleId;
+    let access_token = user.accessToken;
+    // toggle လုပ်တာလည်း ဖြစ်နိုင်မလား?
+    dispatch(upVoteLocal({article_id, access_token}));
   }
   function downVoteClick(articleId){
     console.log("downVoteClick " + articleId);
+    // need to dispatch thunk for downVote
+    console.log(user);
+    let article_id = articleId;
+    let access_token = user.accessToken;
+    // toggle လုပ်တာလည်း ဖြစ်နိုင်မလား?
+    dispatch(downVoteLocal({article_id, access_token}));
   }
 
   return (
@@ -151,6 +165,7 @@ const ArticleDetailPage = () => {
               sx={{
                 display: "flex", flexDirection: "row"
               }}
+              key={comment.id}
             >
               <Avatar
                 src={comment.user.photo_url}

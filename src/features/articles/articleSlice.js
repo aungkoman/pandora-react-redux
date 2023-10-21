@@ -9,7 +9,6 @@ const initialState = {
     page : 1,
     should_load : false,
     prev_page : 0,
-
     article : {},
     article_status : 'idle',
     article_error : null
@@ -52,6 +51,78 @@ export const articleSlice = createSlice({
         },
         refreshPage: (state) => {
             state.page = initialState.page;
+        },
+        upVoteLocal: (state, action) => {
+            // we need article id
+            console.log("articleSlice->upVoteLocal");
+            console.log(action.payload);
+            let article_id = action.payload.article_id;
+            // detail article
+            if(state.article.id == article_id){
+                // need to check already vote or note
+                // normal way ( new vote )
+                if(state.article.user_vote == -1 ){
+                    state.article.user_vote = 1;
+                    state.article.up_vote++;
+                }
+                // already down  vote
+                else if(state.article.user_vote == 0){
+                    state.article.user_vote = 1;
+                    state.article.up_vote++;
+                    state.article.down_vote--;
+                }
+                // if already up vote
+                else{
+                    // don't need to do anything
+                    console.log("already upvoted, remove upvote");
+                    state.article.user_vote = -1;
+                    state.article.up_vote--;
+                }
+                
+            }
+            // article repo
+            for(let i=0; i < state.articles.length; i++){
+                if(state.articles[i].id == article_id){
+                    state.article.user_vote = 1;
+                    state.article.up_vote++;
+                }
+            }
+        },
+        downVoteLocal: (state, action) => {
+            // we need article id
+            console.log("articleSlice->downVoteLocal");
+            console.log(action.payload);
+            let article_id = action.payload.article_id;
+            // detail article
+            if(state.article.id == article_id){
+                // need to check already vote or note
+                // normal way ( new vote ), downvote
+                if(state.article.user_vote == -1 ){
+                    state.article.user_vote = 0;
+                    state.article.down_vote++;
+                }
+                // already down  voted, so remove
+                else if(state.article.user_vote == 0){
+                    state.article.user_vote = -1;
+                    state.article.down_vote--;
+                }
+                // if already up vote, remove upvote and add downvote
+                else{
+                    // don't need to do anything
+                    console.log("already upvoted, remove downvote");
+                    state.article.user_vote = 0;
+                    state.article.down_vote++;
+                    state.article.up_vote--;
+                }
+                
+            }
+            // article repo
+            for(let i=0; i < state.articles.length; i++){
+                if(state.articles[i].id == article_id){
+                    state.article.user_vote = 1;
+                    state.article.up_vote++;
+                }
+            }
         }
     },
     extraReducers: (builder) => {
@@ -95,7 +166,7 @@ export const articleSlice = createSlice({
 });
 
 // actions
-export const { reset, refreshPage } = articleSlice.actions;
+export const { reset, refreshPage, upVoteLocal, downVoteLocal } = articleSlice.actions;
 
 // selectors
 // article list
