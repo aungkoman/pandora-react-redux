@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ARTICLE_API_ENDPOINT } from './../../config/config';
+import { ARTICLE_API_ENDPOINT, VOTE_API_ENDPOINT } from './../../config/config';
 
 
 // A mock function to mimic making an async request for data
@@ -45,8 +45,6 @@ export function articleSelectApi({ filter, page, accessToken }) {
     */
 }
 
-
-// A mock function to mimic making an async request for data
 export function articleDetailSelectApi({ id, accessToken }) {
 
     console.log("articleDetailSelectApi");
@@ -62,6 +60,30 @@ export function articleDetailSelectApi({ id, accessToken }) {
             }
         };
         axios.get(endpoint, config)
+            .then(response => {
+                setTimeout(() => resolve(response.data), 500);
+                //resolve(response.data);
+            })
+            .catch(error => {
+                setTimeout(() => reject(error), 500);
+                // reject(error);
+            });
+    });
+}
+
+export function voteCreateApi({ article_id, vote_type, accessToken }) {
+    console.log("voteCreateApi");
+    console.log({ article_id, vote_type, accessToken });
+    return new Promise((resolve, reject) => {
+        // TODO: filter need to be spread
+        const url = VOTE_API_ENDPOINT;
+        const data = { article_id, vote_type };
+        const config = {
+            headers: {
+                'Authorization': `Bearer ${accessToken}`
+            }
+        };
+        axios.post(url,data, config)
             .then(response => {
                 setTimeout(() => resolve(response.data), 500);
                 //resolve(response.data);
