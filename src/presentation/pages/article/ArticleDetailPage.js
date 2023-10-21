@@ -147,18 +147,20 @@ const ArticleDetailPage = () => {
               display: "flex", flexDirection: "row"
             }}
           >
+            
             <Stack direction="row" spacing={2}>
               <Button onClick={()=> upVoteClick(article.id)} variant={article.user_vote == 1 ? "contained" : "outlined"} startIcon={<ArrowCircleUpIcon />}>
-                Up Vote ({article.up_vote})
+                Up ({article.up_vote})
               </Button>
               <Button onClick={()=> downVoteClick(article.id)}  variant={article.user_vote == 0 ? "contained" : "outlined"} startIcon={<ArrowCircleDownIcon />}>
-                Down Vote ({article.down_vote})
+                Down ({article.down_vote})
               </Button>
             </Stack>
           </Box>
 
-
+            <br></br>
           <Typography variant="subtitle1">Comments</Typography>
+            <br></br>
 
           {article.comments.map((comment, i) =>
             <Box
@@ -185,7 +187,7 @@ const ArticleDetailPage = () => {
 
             </Box>
           )}
-          <UnstyledTextareaIntroduction />
+          
           
         </Box>
       }

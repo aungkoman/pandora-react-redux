@@ -93,12 +93,14 @@ export const articleSlice = createSlice({
                 
             }
             // article repo
+            /*
             for(let i=0; i < state.articles.length; i++){
                 if(state.articles[i].id == article_id){
                     state.article.user_vote = 1;
                     state.article.up_vote++;
                 }
             }
+            */
         },
         downVoteLocal: (state, action) => {
             // we need article id
@@ -121,7 +123,7 @@ export const articleSlice = createSlice({
                 // if already up vote, remove upvote and add downvote
                 else{
                     // don't need to do anything
-                    console.log("already upvoted, remove downvote");
+                    console.log("already upvoted, remove upvote and increase downvote");
                     state.article.user_vote = 0;
                     state.article.down_vote++;
                     state.article.up_vote--;
@@ -134,12 +136,14 @@ export const articleSlice = createSlice({
                 
             }
             // article repo
+            /*
             for(let i=0; i < state.articles.length; i++){
                 if(state.articles[i].id == article_id){
-                    state.article.user_vote = 1;
-                    state.article.up_vote++;
+                    state.articles[i].user_vote = 1;
+                    state.articles[i].up_vote++;
                 }
             }
+            */
         }
     },
     extraReducers: (builder) => {
