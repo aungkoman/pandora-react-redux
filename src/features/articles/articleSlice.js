@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { articleSelectApi, articleDetailSelectApi } from './articleAPI';
+import { articleSelectApi, articleDetailSelectApi, voteCreateApi } from './articleAPI';
 
 // ဒါက Initial State
 const initialState = {
@@ -14,6 +14,7 @@ const initialState = {
     article_error : null
 };
 
+// Async Thunks
 export const selectArticlesAsyncThunk = createAsyncThunk(
     'articles/select',
     async ({ filter, page2, accessToken }, { getState }) => { // <-- destructure getState method
@@ -185,6 +186,15 @@ export const articleSlice = createSlice({
             });
     },
 });
+
+
+export const voteCreateAsyncThunk = createAsyncThunk(
+    'votes/create',
+    async ({ article_id, vote_type, accessToken }) => {
+        const response = await voteCreateApi({ article_id, vote_type, accessToken });
+        return response.data;
+    }
+);
 
 // actions
 export const { reset, refreshPage, upVoteLocal, downVoteLocal } = articleSlice.actions;
