@@ -58,18 +58,27 @@ export const articleSlice = createSlice({
             console.log(action.payload);
             let article_id = action.payload.article_id;
             // detail article
+            console.log("original state");
+            console.log(JSON.parse(JSON.stringify(state.article.user_vote)));
+            console.log(JSON.parse(JSON.stringify(state.article.up_vote)));
             if(state.article.id == article_id){
                 // need to check already vote or note
                 // normal way ( new vote )
                 if(state.article.user_vote == -1 ){
                     state.article.user_vote = 1;
                     state.article.up_vote++;
+                    console.log("new vote");
+                    console.log(JSON.parse(JSON.stringify(state.article.user_vote)));
+                    console.log(JSON.parse(JSON.stringify(state.article.up_vote)));
                 }
                 // already down  vote
                 else if(state.article.user_vote == 0){
                     state.article.user_vote = 1;
                     state.article.up_vote++;
                     state.article.down_vote--;
+                    console.log("move vote");
+                    console.log(JSON.parse(JSON.stringify(state.article.user_vote)));
+                    console.log(JSON.parse(JSON.stringify(state.article.up_vote)));
                 }
                 // if already up vote
                 else{
@@ -77,6 +86,9 @@ export const articleSlice = createSlice({
                     console.log("already upvoted, remove upvote");
                     state.article.user_vote = -1;
                     state.article.up_vote--;
+                    console.log("remove vote");
+                    console.log(JSON.parse(JSON.stringify(state.article.user_vote)));
+                    console.log(JSON.parse(JSON.stringify(state.article.up_vote)));
                 }
                 
             }
@@ -113,6 +125,11 @@ export const articleSlice = createSlice({
                     state.article.user_vote = 0;
                     state.article.down_vote++;
                     state.article.up_vote--;
+                    console.log("new vote");
+                    console.log(JSON.parse(JSON.stringify(state.article.user_vote)));
+                    console.log(JSON.parse(JSON.stringify(state.article.up_vote)));
+                    console.log(JSON.parse(JSON.stringify(state.article.down_vote)));
+
                 }
                 
             }
