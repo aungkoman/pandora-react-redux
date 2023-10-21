@@ -1,5 +1,56 @@
 # React Redux Toolkit CODELAB
 
+## 2023-10-21 Sat , Voting and Comment
+
+- User Story
+
+Login ဝင်ထားတဲ့ user တစ်ယောက်အနေနဲ့ article တွေကို သဘောကြကြောင်း / သဘောမကြကြောင်းဖော်ပြနိုင်ဖို့အတွက် voting ပေးချင်တယ်။
+
+Login မဝင်ရေသးတဲ့သူက voting ပေးဖို့ နှိပ်ရင် Login ဝင်ထားမှ ပေးလို့ရမယ် ဖြစ်ကြောင်း ပြပေးပြီး Login Page ကို သွားနိုင်အောင် လုပ်ပေးထားရမယ်။
+
+- Acceptance Criterion
+
+UI က ဒါ upvote လုပ်ထားတာလား downvote လုပ်ထားတာလားဆိုတာကို သိသာအောင် ပြပေးထားလိုက်ရမယ်။
+vote လုပ်ရင်လည်း ချက်ခြင်း reactive ဖြစ်ရမယ်။ (ဂဏန်းတွေကအစ ချက်ခြင်းပြောင်း)
+
+### Warming Up
+
+ဘယ်က စကိုင်မလဲ
+API Integration တစ်ခုလုပ်ဖို့။
+
+လုပ်ရမယ့် Written Guide တစ်ခုလိုတယ်။
+
+- State 
+ဒါက သတ်မှတ်ထားပြီးသွားပြီ
+
+- UI
+Page လည်းရပြီ
+Component လည်း ရပြီ
+
+- UI Logic
+ဘယ် State ကို ဘယ်လို UI Render ချမှာလဲ လုပ်မယ်။
+
+- Reducers မှာ 
+Initial State
+Action
+Thunk
+API Call
+Endpoints
+
+
+
+## Thought become things.
+
+- law of attractions.
+
+ချမ်းသာချင်တယ်။
+အလုပ်ကြိုးစားတယ်။
+
+တစ်ချိန်လုံး ချမ်းသာချင်နေတဲ့စိတ်။
+
+ကိုယ်ဘာတွေတွေးနေတာလဲကို သတိကပ်ထားရမယ်။
+
+
 ## 2023-10-14 Validation စာ
 
 - User Story
