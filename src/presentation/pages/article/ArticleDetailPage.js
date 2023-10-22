@@ -38,6 +38,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import {
   // thunks
   selectArticleDetailAsyncThunk,
+  voteCreateAsyncThunk,
   // actions
   reset,
   upVoteLocal,
@@ -100,8 +101,10 @@ const ArticleDetailPage = () => {
     // need to dispatch thunk for upVote
     let article_id = articleId;
     let access_token = user.access_token;
+    let vote_type = 1;
     // toggle လုပ်တာလည်း ဖြစ်နိုင်မလား?
     dispatch(upVoteLocal({article_id, access_token}));
+    dispatch(selectArticleDetailAsyncThunk({article_id, vote_type, access_token}));
   }
   function downVoteClick(articleId){
     console.log("downVoteClick " + articleId);

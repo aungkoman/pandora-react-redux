@@ -43,6 +43,15 @@ export const selectArticleDetailAsyncThunk = createAsyncThunk(
     }
 );
 
+export const voteCreateAsyncThunk = createAsyncThunk(
+    'votes/create',
+    async ({ article_id, vote_type, accessToken }) => {
+        const response = await voteCreateApi({ article_id, vote_type, accessToken });
+        return response.data;
+    }
+);
+
+// Slice
 export const articleSlice = createSlice({
     name: 'articles',
     initialState,
@@ -183,18 +192,26 @@ export const articleSlice = createSlice({
             .addCase(selectArticleDetailAsyncThunk.rejected, (state, action) => {
                 state.article_status = 'error';
                 state.error = action.error.message; // Store the error message
+            })
+            // vote create api listener
+            .addCase(voteCreateAsyncThunk.pending, (state) => {
+                //state.article_status = 'loading';
+                console.log("voteCreateAsyncThunk.pending");
+            })
+            .addCase(voteCreateAsyncThunk.fulfilled, (state, action) => {
+                //state.article_status = 'succeeded';
+                //state.article = action.payload;
+                console.log("voteCreateAsyncThunk.fulfilled");
+            })
+            .addCase(voteCreateAsyncThunk.rejected, (state, action) => {
+                //state.article_status = 'error';
+                //state.error = action.error.message; // Store the error message
+                console.log("voteCreateAsyncThunk.rejected");
             });
     },
 });
 
 
-export const voteCreateAsyncThunk = createAsyncThunk(
-    'votes/create',
-    async ({ article_id, vote_type, accessToken }) => {
-        const response = await voteCreateApi({ article_id, vote_type, accessToken });
-        return response.data;
-    }
-);
 
 // actions
 export const { reset, refreshPage, upVoteLocal, downVoteLocal } = articleSlice.actions;
