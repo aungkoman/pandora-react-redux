@@ -32,10 +32,10 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/myandora">
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<ArticleListPage   />} />
+            <Route  index  element={<ArticleListPage   />}  />
             <Route path="*" element={<NoPage />} />
             <Route path="/firebase-signup" element={<FirebaseSignUpPage />} />
             <Route path="/firebase-login" element={<FirebaseLoginPage />} />
