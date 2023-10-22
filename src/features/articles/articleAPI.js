@@ -3,10 +3,10 @@ import { ARTICLE_API_ENDPOINT, VOTE_API_ENDPOINT } from './../../config/config';
 
 
 // A mock function to mimic making an async request for data
-export function articleSelectApi({ filter, page, accessToken }) {
+export function articleSelectApi({ filter, page, access_token }) {
 
     console.log("articleSelectApi");
-    console.log({ filter, page, accessToken });
+    console.log({ filter, page, access_token });
     
 
     return new Promise((resolve, reject) => {
@@ -14,7 +14,7 @@ export function articleSelectApi({ filter, page, accessToken }) {
         let endpoint = ARTICLE_API_ENDPOINT + "?page=" + page;
         const config = {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${access_token}`
             }
         };
         axios.get(endpoint, config)
@@ -45,10 +45,10 @@ export function articleSelectApi({ filter, page, accessToken }) {
     */
 }
 
-export function articleDetailSelectApi({ id, accessToken }) {
+export function articleDetailSelectApi({ id, access_token }) {
 
     console.log("articleDetailSelectApi");
-    console.log({ id, accessToken  });
+    console.log({ id, access_token  });
     
 
     return new Promise((resolve, reject) => {
@@ -56,7 +56,7 @@ export function articleDetailSelectApi({ id, accessToken }) {
         let endpoint = ARTICLE_API_ENDPOINT + "/" + id;
         const config = {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${access_token}`
             }
         };
         axios.get(endpoint, config)
@@ -71,16 +71,16 @@ export function articleDetailSelectApi({ id, accessToken }) {
     });
 }
 
-export function voteCreateApi({ article_id, vote_type, accessToken }) {
+export function voteCreateApi({ article_id, vote_type, access_token }) {
     console.log("voteCreateApi");
-    console.log({ article_id, vote_type, accessToken });
+    console.log({ article_id, vote_type, access_token });
     return new Promise((resolve, reject) => {
         // TODO: filter need to be spread
         const url = VOTE_API_ENDPOINT;
         const data = { article_id, vote_type };
         const config = {
             headers: {
-                'Authorization': `Bearer ${accessToken}`
+                'Authorization': `Bearer ${access_token}`
             }
         };
         axios.post(url,data, config)

@@ -17,7 +17,7 @@ const initialState = {
 // Async Thunks
 export const selectArticlesAsyncThunk = createAsyncThunk(
     'articles/select',
-    async ({ filter, page2, accessToken }, { getState }) => { // <-- destructure getState method
+    async ({ filter, page2, access_token }, { getState }) => { // <-- destructure getState method
         const state = getState(); // <-- invoke and access state object
         // console.log("selectArticlesAsyncThunk getState for pages");
         // console.log(state.articles.page);
@@ -29,7 +29,7 @@ export const selectArticlesAsyncThunk = createAsyncThunk(
         }
 
         let page = state.articles.page;
-        const response = await articleSelectApi({ filter, page, accessToken });
+        const response = await articleSelectApi({ filter, page, access_token });
         return response.data;
     }
 );
@@ -37,16 +37,16 @@ export const selectArticlesAsyncThunk = createAsyncThunk(
 
 export const selectArticleDetailAsyncThunk = createAsyncThunk(
     'articles/detail',
-    async ({ id, accessToken }) => {
-        const response = await articleDetailSelectApi({ id, accessToken });
+    async ({ id, access_token }) => {
+        const response = await articleDetailSelectApi({ id, access_token });
         return response.data;
     }
 );
 
 export const voteCreateAsyncThunk = createAsyncThunk(
     'votes/create',
-    async ({ article_id, vote_type, accessToken }) => {
-        const response = await voteCreateApi({ article_id, vote_type, accessToken });
+    async ({ article_id, vote_type, access_token }) => {
+        const response = await voteCreateApi({ article_id, vote_type, access_token });
         return response.data;
     }
 );

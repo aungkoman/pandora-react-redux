@@ -85,9 +85,8 @@ const ArticleDetailPage = () => {
 
   // dispatch select article detail api
   useEffect(() => {
-    let accessToken = user.accessToken;
-    let data = { id, accessToken };
-    dispatch(selectArticleDetailAsyncThunk(data));
+    const access_token = user.access_token;
+    dispatch(selectArticleDetailAsyncThunk({id, access_token}));
   }, []); // Include history as a dependency
 
   function upVoteClick(articleId){
@@ -104,7 +103,7 @@ const ArticleDetailPage = () => {
     let vote_type = 1;
     // toggle လုပ်တာလည်း ဖြစ်နိုင်မလား?
     dispatch(upVoteLocal({article_id, access_token}));
-    dispatch(selectArticleDetailAsyncThunk({article_id, vote_type, access_token}));
+    dispatch(voteCreateAsyncThunk({article_id, vote_type, access_token}));
   }
   function downVoteClick(articleId){
     console.log("downVoteClick " + articleId);
@@ -117,8 +116,10 @@ const ArticleDetailPage = () => {
     }
     let article_id = articleId;
     let access_token = user.access_token;
+    let vote_type = 0;
     // toggle လုပ်တာလည်း ဖြစ်နိုင်မလား?
     dispatch(downVoteLocal({article_id, access_token}));
+    dispatch(voteCreateAsyncThunk({article_id, vote_type, access_token}));
   }
 
   const handleClose = () => {

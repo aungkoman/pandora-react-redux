@@ -4,7 +4,7 @@ import { loginApi, registerApi } from './userAPI';
 // ဒါက Initial State
 const initialState = {
   user: {
-    "id": 0,
+    "id": 1,
     "uid": null,
     "name": "admin",
     "phone": null,
@@ -17,7 +17,8 @@ const initialState = {
     "role_id": 2,
     "created_at": "2023-09-27T02:37:44.000000Z",
     "updated_at": "2023-09-27T02:37:44.000000Z",
-    "access_token": null
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMTMwN2I4YjFjYjMxMzZlM2FkZmM5ODNlM2MzYjI4MzJiZmJkMTIzYTBiY2IyYWJlMWQ1MTM5YzAyNDYzYTM4NGQ0MmYxNzNlYjE0OTA2MWUiLCJpYXQiOjE2OTc5NDg3MjkuOTQxMzY1MDAzNTg1ODE1NDI5Njg3NSwibmJmIjoxNjk3OTQ4NzI5Ljk0MTM2NTk1NzI2MDEzMTgzNTkzNzUsImV4cCI6MTcyOTU3MTEyOS45MzExMjcwNzEzODA2MTUyMzQzNzUsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.C1kW_cNmxp2Rf49ZrlFcgfyJzOomBxRgUBxdH4H9iNZ7Yap7o2TzIR2pvmO7odnFkW90IDE6Uc4ib54LNVpxz339Cnbw1uT_PVS9eEiZ8PYfRE2Zlwnhzt7V0K-RNXu4qaXByiFzCa1BR66GQBPCLsRp0s6CA0yCEkhNRQLt4YoJwJgDkqlo5BG_Byrvs2Izm8C6tRVGZVvqnODEByLWb48BqTfnHw6xtd-08WcrIcOzrLLkxvVe-2Hrre7k9RSzlpT4tJyly3FDKYD8tN9lKNJSqt9hg8k1Lbl3Kh7xwkB2OCOQp8mFrfueMhuR7aB58wUkJg4F28MNZTNIORElKl6ZYXOllwDEuYwsHwZG7JANXopO9ydoHbOWgWLtnaHbF_6TAg-12s4lfqme3hDWT7S66AWRkFcWoo_FNAVO2qIYUxbyqA0O_CAoQQEEJLtir18dgy13uZQsWhj80_uz0M4QcgDObywgw2JEGQMpLBJBOk5PILm_67AH1TgSHLzUqpf_qcudtfSlLRuolG5NHltBX84ljgOtMoUnia0QvZRIaZWIna7U3PRyxNzO_g28XszLQY1rx8qjtABVuFr1jJAZ0g2ujRs4ua_ZFe7oIGYEageSE-ZRt9NH3lV95-fUp1UaLszYScpY1bsWxdccYlHLAPlcSFw_nnVUZRGLtdA",
+    "user_statistics": []
   },
   status: 'idle', // idle, loading, error , succeeded
   error: null,
