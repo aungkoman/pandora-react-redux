@@ -32,7 +32,7 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename="/myandora">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route  index  element={<ArticleListPage   />}  />
